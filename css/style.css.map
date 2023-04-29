@@ -1,0 +1,10 @@
+{
+    "version": 3,
+    "mappings": "ACAA,AAAA,SAAS,CAAC;EACR,KAAK,EAAE,KAAK;EACZ,MAAM,EAAE,KAAK;EACb,gBAAgB,EAAE,IAAI;CAkBvB;;AArBD,AAKE,SALO,CAKP,SAAS,CAAC;EACR,KAAK,EAAE,KAAK;EACZ,MAAM,EAAE,KAAK;EACb,gBAAgB,EAAE,KAAK;CACxB;;AAEA,AAAD,kBAAU,CAAC;EACT,KAAK,EAAE,KAAK;EACZ,MAAM,EAAE,KAAK;CACd;;AAdH,AAgBE,SAhBO,CAgBP,IAAI,CAAC;EACH,KAAK,EAAE,IAAI;EACX,MAAM,EAAE,IAAI;EACZ,gBAAgB,EAAE,MAAM;CACzB",
+    "sources": [
+        "../scss/style.scss",
+        "../scss/blocks/_keyboard.scss"
+    ],
+    "names": [],
+    "file": "style.css"
+}
