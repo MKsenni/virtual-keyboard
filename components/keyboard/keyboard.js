@@ -1,6 +1,6 @@
-import { keyButton } from "./keyButton.js";
+// import { keyButtonEngDown } from "./keyButton.js";
 // import { keys } from "../../keys.js";
-import { firstRow, secondRow, thirdRow, fourRow, fiveRow } from "./keyButton.js";
+import * as KeyButton from './keyButton.js';
 
 const cssClasses = {
   KEYBOARD: 'keyboard',
@@ -28,33 +28,33 @@ export const createKeyboard = (keys) => {
   const wrapper  = createElement('div', cssClasses.WRAPPER);
   keyboard.append(wrapper);
   
-  let rowArr = [];
-  for (let i = 0; i < 5; i++) {
+  let rowArr = new Array();
+  for (let i = 0; i < 5; i += 1) {
     const row = createElement('div', cssClasses.ROW);
     wrapper.append(row);
     rowArr.push(row);
-    console.log(rowArr);
   }
+  console.log(rowArr);
 
   const buttonFirstRow  = createElement('button', cssClasses.KEY);
   rowArr[0].append(buttonFirstRow);
-  buttonFirstRow.textContent = firstRow;
+  buttonFirstRow.textContent = KeyButton.firstRow;
   
   const buttonSecondRow  = createElement('button', cssClasses.KEY);
   rowArr[1].append(buttonSecondRow);
-  buttonSecondRow.textContent = secondRow;
+  buttonSecondRow.textContent = KeyButton.secondRow;
 
   const buttonThirdRow  = createElement('button', cssClasses.KEY);
   rowArr[2].append(buttonThirdRow);
-  buttonThirdRow.textContent = thirdRow;
+  buttonThirdRow.textContent = KeyButton.thirdRow;
 
   const buttonFourRow  = createElement('button', cssClasses.KEY);
   rowArr[3].append(buttonFourRow);
-  buttonFourRow.textContent = fourRow;
+  buttonFourRow.textContent = KeyButton.fourRow;
 
   const buttonFiveRow  = createElement('button', cssClasses.KEY);
   rowArr[4].append(buttonFiveRow);
-  buttonFiveRow.textContent = fiveRow;
+  buttonFiveRow.textContent = KeyButton.fiveRow;
 
   
   // template += `<span class=>${firstRow}`;
