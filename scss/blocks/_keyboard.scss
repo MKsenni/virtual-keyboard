@@ -1,9 +1,10 @@
 .keyboard {
-  width: 800px;
-  height: 500px;
-  background-color: aqua;
+  // width: 800px;
+  // height: 500px;
 
   .textarea {
+    display: block;
+    margin: 0 auto;
     width: 400px;
     height: 150px;
     background-color: white;
@@ -11,6 +12,7 @@
 
   &__wrapper {
     // width: 400px;
+    margin: 0 auto;
     height: 300px;
   }
 
@@ -18,5 +20,20 @@
     width: 50px;
     height: 50px;
     background-color: yellow;
+
+    .eng {
+
+      .hidden {
+        display: none;
+      }
+    }
+
+    // .rus {
+
+    // }
+
+    .hidden {
+      display: none;
+    }
   }
 }

@@ -6,6 +6,12 @@ const cssClasses = {
   WRAPPER: 'keyboard__wrapper',
   ROW: 'keyboard__row',
   KEY: 'key',
+  ENG: 'eng',
+  RUS: 'rus',
+  DOWN: 'pressDown',
+  UP: 'pressUp',
+  CAPS: 'caps',
+  SHIFTCAPS: 'shiftCaps',
 }
 
 export const createKeyboard = (keys) => {
@@ -31,37 +37,74 @@ export const createKeyboard = (keys) => {
   for (let i = 0; i < 14; i += 1) {
     const buttonFirstRow  = createElement('button', cssClasses.KEY);
     rowArr[0].append(buttonFirstRow);
-    buttonFirstRow.textContent = KeyButton.firstRow[i];
+
+    const spanEng = KeyButton.createSpanEng(buttonFirstRow);
+    const pressDown =  KeyButton.createPress(cssClasses.DOWN);
+    spanEng.append(pressDown);
+    KeyButton.createVariationsPressHidden(spanEng);
+    pressDown.textContent = KeyButton.firstRow[i];
+
+    const spanRus = KeyButton.createSpanRus(buttonFirstRow);
+    spanRus.classList.add('hidden');
+    const pressDownRus =  KeyButton.createPress(cssClasses.DOWN);
+    spanRus.append(pressDownRus);
+    KeyButton.createVariationsPressHidden(spanRus);
+    pressDownRus.textContent = KeyButton.firstRow[i];
   }
 
   for (let i = 0; i < 15; i += 1) {
     const buttonSecondRow  = createElement('button', cssClasses.KEY);
     rowArr[1].append(buttonSecondRow);
-    buttonSecondRow.textContent = KeyButton.secondRow[i];
+
+    const spanEng = KeyButton.createSpanEng(buttonSecondRow);
+    const pressDown =  KeyButton.createPress(cssClasses.DOWN)
+    spanEng.append(pressDown);
+
+    KeyButton.createVariationsPressHidden(spanEng);
+
+    pressDown.textContent = KeyButton.secondRow[i];
   }
   
   for (let i = 0; i < 14; i += 1) {
     const buttonThirdRow  = createElement('button', cssClasses.KEY);
     rowArr[2].append(buttonThirdRow);
-    buttonThirdRow.textContent = KeyButton.thirdRow[i];
+    const spanEng = KeyButton.createSpanEng(buttonThirdRow);
+    const pressDown =  KeyButton.createPress(cssClasses.DOWN)
+    spanEng.append(pressDown);
+
+    KeyButton.createVariationsPressHidden(spanEng);
+
+    pressDown.textContent = KeyButton.thirdRow[i];
   }
   
   for (let i = 0; i < 13; i += 1) {
     const buttonFourRow  = createElement('button', cssClasses.KEY);
     rowArr[3].append(buttonFourRow);
-    buttonFourRow.textContent = KeyButton.fourRow[i];
+    const spanEng = KeyButton.createSpanEng(buttonFourRow);
+    const pressDown =  KeyButton.createPress(cssClasses.DOWN)
+    spanEng.append(pressDown);
+
+    KeyButton.createVariationsPressHidden(spanEng);
+
+    pressDown.textContent = KeyButton.fourRow[i];
   }
   
   for (let i = 0; i < 9; i += 1) {
     const buttonFiveRow  = createElement('button', cssClasses.KEY);
     rowArr[4].append(buttonFiveRow);
-    buttonFiveRow.textContent = KeyButton.fiveRow[i];
+    const spanEng = KeyButton.createSpanEng(buttonFiveRow);
+    const pressDown =  KeyButton.createPress(cssClasses.DOWN)
+    spanEng.append(pressDown);
+
+    KeyButton.createVariationsPressHidden(spanEng);
+
+    pressDown.textContent = KeyButton.fiveRow[i];
   }
   
   return keyboard;
 }
 
-const createElement = (tagName, className) => {
+export const createElement = (tagName, className) => {
   const element = document.createElement(tagName);
   element.classList.add(className);
   return element;
