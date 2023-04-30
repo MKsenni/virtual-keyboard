@@ -36,6 +36,7 @@ export const createKeyboard = (keys) => {
 
   let arrLettersEngDown = new Array();
   let arrLettersEngUp = new Array();
+  let arrLettersEngCaps = new Array();
   let arrLettersRusDown = new Array();
   let arrLettersRusUp = new Array();
   // let specialsSymbols = new Array();
@@ -57,6 +58,7 @@ export const createKeyboard = (keys) => {
 
     const caps = createElement('span', cssClasses.CAPS);
     caps.classList.add('hidden');
+    arrLettersEngCaps.push(caps);
     caps.textContent = KeyButton.firstRowCaps[i];
 
     const shiftCaps = createElement('span', cssClasses.SHIFTCAPS);
@@ -105,6 +107,7 @@ export const createKeyboard = (keys) => {
 
     const caps = createElement('span', cssClasses.CAPS);
     caps.classList.add('hidden');
+    arrLettersEngCaps.push(caps);
     caps.textContent = KeyButton.secondRowCaps[i];
 
     const shiftCaps = createElement('span', cssClasses.SHIFTCAPS);
@@ -151,6 +154,7 @@ export const createKeyboard = (keys) => {
 
     const caps = createElement('span', cssClasses.CAPS);
     caps.classList.add('hidden');
+    arrLettersEngCaps.push(caps);
     caps.textContent = KeyButton.thirdRowCaps[i];
 
     const shiftCaps = createElement('span', cssClasses.SHIFTCAPS);
@@ -197,6 +201,7 @@ export const createKeyboard = (keys) => {
 
     const caps = createElement('span', cssClasses.CAPS);
     caps.classList.add('hidden');
+    arrLettersEngCaps.push(caps);
     caps.textContent = KeyButton.fourRowCaps[i];
 
     const shiftCaps = createElement('span', cssClasses.SHIFTCAPS);
@@ -228,10 +233,7 @@ export const createKeyboard = (keys) => {
     spanRus.append(pressDownRus, pressUpRus, capsRus, shiftCapsRus);
 
     
-    rowArr[3].firstChild.addEventListener('mouseup', () => {
-      spanEng.childNodes[1].classList.add('hidden');
-      spanEng.childNodes[0].classList.remove('hidden');
-    })
+    
   }
   console.log(keys[1][0].eng.pressUp);
   console.log( typeof Array.from(rowArr[1].childNodes));
@@ -251,6 +253,7 @@ export const createKeyboard = (keys) => {
 
     const caps = createElement('span', cssClasses.CAPS);
     caps.classList.add('hidden');
+    arrLettersEngCaps.push(caps);
     caps.textContent = KeyButton.fiveRowCaps[i];
 
     const shiftCaps = createElement('span', cssClasses.SHIFTCAPS);
@@ -283,28 +286,48 @@ export const createKeyboard = (keys) => {
   }
 
   rowArr[3].firstChild.addEventListener('mousedown', () => {
-    // e.preventDefault();
+    for (let i = 0; i < arrLettersEngUp.length; i += 1) {
+      arrLettersEngUp[i].classList.remove('hidden');
+    }
+    for (let i = 0; i < arrLettersEngDown.length; i += 1) {
+      arrLettersEngDown[i].classList.add('hidden');
+    }
+  })
+
+  rowArr[3].lastChild.addEventListener('mousedown', () => {
+    for (let i = 0; i < arrLettersEngUp.length; i += 1) {
+      arrLettersEngUp[i].classList.remove('hidden');
+    }
+    for (let i = 0; i < arrLettersEngDown.length; i += 1) {
+      arrLettersEngDown[i].classList.add('hidden');
+    }
+  })
+
+  rowArr[3].firstChild.addEventListener('mouseup', () => {
     for (let i = 0; i < arrLettersEngUp.length; i += 1) {
       arrLettersEngUp[i].classList.add('hidden');
     }
     for (let i = 0; i < arrLettersEngDown.length; i += 1) {
       arrLettersEngDown[i].classList.remove('hidden');
     }
-    // spanEng.childNodes[0].classList.add('hidden');
-    // spanEng.childNodes[1].classList.remove('hidden');
+  })
 
-    // Array.from(rowArr.childeNodes);
+  rowArr[3].lastChild.addEventListener('mouseup', () => {
+    for (let i = 0; i < arrLettersEngUp.length; i += 1) {
+      arrLettersEngUp[i].classList.add('hidden');
+    }
+    for (let i = 0; i < arrLettersEngDown.length; i += 1) {
+      arrLettersEngDown[i].classList.remove('hidden');
+    }
+  })
 
-
-    // for (let i = 0; i < rowArr[3].length; i += 1) {
-    //   // for (let j = 0; j < keys[i].length; j += 1) {
-    //   //   keys[i][j].eng.pressDown.className.add('hidden');
-    //   //   keys[i][j].eng.pressUp.className.remove('hidden');
-
-    //   // }
-      
-
-    // }
+  rowArr[2].firstChild.addEventListener('click', () => {
+    for (let i = 0; i < arrLettersEngCaps.length; i += 1) {
+      arrLettersEngCaps[i].classList.toggle('hidden');
+    }
+    for (let i = 0; i < arrLettersEngDown.length; i += 1) {
+      arrLettersEngDown[i].classList.toggle('hidden');
+    } 
   })
 
   return keyboard;

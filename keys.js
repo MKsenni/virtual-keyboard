@@ -64,7 +64,7 @@ export const keys = [
       'rus': {'pressDown': 'Tab', 'pressUp': 'Tab'}
     },
     {'className': 'KeyQ', 
-      'eng': {'pressDown': 'q', 'pressUp': 'Q'},
+      'eng': {'pressDown': 'q', 'pressUp': 'Q', 'caps': "Q", 'shiftCaps': 'q'},
       'rus': {'pressDown': 'й', 'pressUp': 'Й'}
     },
     {'className': 'KeyW', 
