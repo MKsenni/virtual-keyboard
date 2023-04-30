@@ -246,8 +246,6 @@ export const createKeyboard = (keys) => {
     
     
   }
-  console.log(keys[1][0].eng.pressUp);
-  console.log( typeof Array.from(rowArr[1].childNodes));
   
   for (let i = 0; i < 9; i += 1) {
     const buttonFiveRow  = createElement('button', cssClasses.KEY);
@@ -300,61 +298,53 @@ export const createKeyboard = (keys) => {
 
   rowArr[3].firstChild.addEventListener('mousedown', () => {
     for (let i = 0; i < arrLettersEngUp.length; i += 1) {
+      arrLettersEngDown[i].classList.add('hidden');
       arrLettersEngUp[i].classList.remove('hidden');
     }
-    for (let i = 0; i < arrLettersEngDown.length; i += 1) {
-      arrLettersEngDown[i].classList.add('hidden');
+  })
+  
+  rowArr[3].firstChild.addEventListener('mouseup', () => {
+    for (let i = 0; i < arrLettersEngUp.length; i += 1) {
+      arrLettersEngDown[i].classList.remove('hidden');
+      arrLettersEngUp[i].classList.add('hidden');
     }
   })
 
   rowArr[3].lastChild.addEventListener('mousedown', () => {
     for (let i = 0; i < arrLettersEngUp.length; i += 1) {
-      arrLettersEngUp[i].classList.remove('hidden');
-    }
-    for (let i = 0; i < arrLettersEngDown.length; i += 1) {
       arrLettersEngDown[i].classList.add('hidden');
-    }
-  })
-
-  rowArr[3].firstChild.addEventListener('mouseup', () => {
-    for (let i = 0; i < arrLettersEngUp.length; i += 1) {
-      arrLettersEngUp[i].classList.add('hidden');
-    }
-    for (let i = 0; i < arrLettersEngDown.length; i += 1) {
-      arrLettersEngDown[i].classList.remove('hidden');
+      arrLettersEngUp[i].classList.remove('hidden');
     }
   })
 
   rowArr[3].lastChild.addEventListener('mouseup', () => {
     for (let i = 0; i < arrLettersEngUp.length; i += 1) {
+      arrLettersEngDown[i].classList.remove('hidden');
       arrLettersEngUp[i].classList.add('hidden');
     }
-    for (let i = 0; i < arrLettersEngDown.length; i += 1) {
-      arrLettersEngDown[i].classList.remove('hidden');
-    }
   })
 
-  rowArr[2].firstChild.addEventListener('click', () => {
+  rowArr[2].firstChild.addEventListener('click', (event) => {
+    // event.preventDefault();
+    let target = event.target;
+    if (target) {
+      console.log('sssss');
+      rowArr[2].firstChild.classList.add('highlight');
+    }
     for (let i = 0; i < arrLettersEngCaps.length; i += 1) {
       arrLettersEngCaps[i].classList.toggle('hidden');
-    }
-    for (let i = 0; i < arrLettersEngDown.length; i += 1) {
       arrLettersEngDown[i].classList.toggle('hidden');
-    } 
+    }
   })
 
-  
   document.addEventListener('keydown', (event) => {
     event.preventDefault();
-    // console.log('hm');
-    if (event.altKey && event.ctrlKey) {
-      console.log('yeeeeeah');
+    if (event.altKey && event.shiftKey) {
       for (let i = 0; i < arrSpanEng.length; i += 1) {
         arrSpanEng[i].classList.toggle('hidden');
         arrSpanRus[i].classList.toggle('hidden');
       }
     }
-
   })
 
   document.addEventListener('keydown', (event) => {
@@ -362,12 +352,53 @@ export const createKeyboard = (keys) => {
     if (event.code == 'CapsLock') {
       for (let i = 0; i < arrLettersEngCaps.length; i += 1) {
         arrLettersEngCaps[i].classList.toggle('hidden');
-      }
-      for (let i = 0; i < arrLettersEngDown.length; i += 1) {
         arrLettersEngDown[i].classList.toggle('hidden');
-      } 
+      }
     }
   })
+
+  wrapper.addEventListener('mousedown', (event) => {
+    event.preventDefault();
+    let button = event.target.closest('button');
+
+    if (!button) return;
+
+    if (!wrapper.contains(button)) return;
+
+    highlight(button);
+  })
+
+  wrapper.addEventListener('mouseup', (event) => {
+    event.preventDefault();
+    let button = event.target.closest('button');
+    deleteHighlight(button);
+  })
+
+  window.addEventListener('keydown', (event) => {
+    // event.preventDefault();
+    let button = event.target.closest('button');
+
+    // if (!button) return;
+
+    // if (!wrapper.contains(button)) return;
+
+    console.log('ddddd');
+    highlight(button);
+  })
+
+  window.addEventListener('keyup', (event) => {
+    // event.preventDefault();
+    let button = event.target.closest('button');
+    deleteHighlight(button);
+  })
+
+  const highlight = (button) => {
+      button.classList.add('highlight');
+  }
+
+  const deleteHighlight = (button) => {
+    button.classList.remove('highlight');
+  }
 
   return keyboard;
 }

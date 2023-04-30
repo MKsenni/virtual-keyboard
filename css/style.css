@@ -53,4 +53,8 @@ body {
 .keyboard__wrapper .keyboard__row .key .hidden {
   display: none;
 }
+
+.keyboard__wrapper .keyboard__row .highlight {
+  background-color: red;
+}
 /*# sourceMappingURL=style.css.map */
