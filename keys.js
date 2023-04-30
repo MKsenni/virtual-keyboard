@@ -53,55 +53,55 @@ export const keys = [
       'rus': {'pressDown': '=', 'pressUp': '+', 'caps': '=', 'shiftCaps': '+'}
     },
     {'className': 'Backspace',
-      'eng': {'pressDown': 'Backspace', 'pressUp': 'Backspace'},
-      'rus': {'pressDown': 'Backspace', 'pressUp': 'Backspace'}
+      'eng': {'pressDown': 'Backspace', 'pressUp': 'Backspace', 'caps': 'Backspace', 'shiftCaps': 'Backspace'},
+      'rus': {'pressDown': 'Backspace', 'pressUp': 'Backspace', 'caps': 'Backspace', 'shiftCaps': 'Backspace'}
     },
   ],
 
   [
     {'className': 'Tab', 
-      'eng': {'pressDown': 'Tab', 'pressUp': 'Tab'},
-      'rus': {'pressDown': 'Tab', 'pressUp': 'Tab'}
+      'eng': {'pressDown': 'Tab', 'pressUp': 'Tab', 'caps': 'Tab', 'shiftCaps': 'Tab'},
+      'rus': {'pressDown': 'Tab', 'pressUp': 'Tab', 'caps': 'Tab', 'shiftCaps': 'Tab'}
     },
     {'className': 'KeyQ', 
       'eng': {'pressDown': 'q', 'pressUp': 'Q', 'caps': "Q", 'shiftCaps': 'q'},
-      'rus': {'pressDown': 'й', 'pressUp': 'Й'}
+      'rus': {'pressDown': 'й', 'pressUp': 'Й', 'caps': "Ц", 'shiftCaps': 'ц'}
     },
     {'className': 'KeyW', 
-      'eng': {'pressDown': 'w', 'pressUp': 'W'},
-      'rus': {'pressDown': 'ц', 'pressUp': 'Ц'}
+      'eng': {'pressDown': 'w', 'pressUp': 'W', 'caps': "W", 'shiftCaps': 'w'},
+      'rus': {'pressDown': 'ц', 'pressUp': 'Ц', 'caps': "Ц", 'shiftCaps': 'ц'}
     },
     {'className': 'KeyE',
-      'eng': {'pressDown': 'e', 'pressUp': 'E'},
-      'rus': {'pressDown': 'у', 'pressUp': 'У'}
+      'eng': {'pressDown': 'e', 'pressUp': 'E', 'caps': "E", 'shiftCaps': 'e'},
+      'rus': {'pressDown': 'у', 'pressUp': 'У', 'caps': "У", 'shiftCaps': 'У'}
     },
     {'className': 'KeyR',
-      'eng': {'pressDown': 'r', 'pressUp': 'R'},
-      'rus': {'pressDown': 'к', 'pressUp': 'К'}
+      'eng': {'pressDown': 'r', 'pressUp': 'R', 'caps': "R", 'shiftCaps': 'r'},
+      'rus': {'pressDown': 'к', 'pressUp': 'К', 'caps': "К", 'shiftCaps': 'к'}
     },
     {'className': 'KeyT',
-      'eng': {'pressDown': 't', 'pressUp': 'T'},
-      'rus': {'pressDown': 'е', 'pressUp': 'Е'}
+      'eng': {'pressDown': 't', 'pressUp': 'T', 'caps': "T", 'shiftCaps': 't'},
+      'rus': {'pressDown': 'е', 'pressUp': 'Е', 'caps': "Е", 'shiftCaps': 'е'}
     },
     {'className': 'KeyY',
-      'eng': {'pressDown': 'y', 'pressUp': 'Y'},
-      'rus': {'pressDown': 'н', 'pressUp': 'Н'}
+      'eng': {'pressDown': 'y', 'pressUp': 'Y', 'caps': "Y", 'shiftCaps': 'y'},
+      'rus': {'pressDown': 'н', 'pressUp': 'Н', 'caps': "Н", 'shiftCaps': 'н'}
     },
     {'className': 'KeyU',
-      'eng': {'pressDown': 'u', 'pressUp': 'U'},
-      'rus': {'pressDown': 'г', 'pressUp': 'Г'}
+      'eng': {'pressDown': 'u', 'pressUp': 'U', 'caps': "U", 'shiftCaps': 'u'},
+      'rus': {'pressDown': 'г', 'pressUp': 'Г', 'caps': "Г", 'shiftCaps': 'г'}
     },
     {'className': 'KeyI',
-      'eng': {'pressDown': 'i', 'pressUp': 'I'},
-      'rus': {'pressDown': 'ш', 'pressUp': 'Ш'}
+      'eng': {'pressDown': 'i', 'pressUp': 'I', 'caps': "I", 'shiftCaps': 'i'},
+      'rus': {'pressDown': 'ш', 'pressUp': 'Ш', 'caps': "Ш", 'shiftCaps': 'ш'}
     },
     {'className': 'KeyO', 
-      'eng': {'pressDown': 'o', 'pressUp': 'O'},
-      'rus': {'pressDown': 'щ', 'pressUp': 'Щ'}
+      'eng': {'pressDown': 'o', 'pressUp': 'O', 'caps': "O", 'shiftCaps': 'o'},
+      'rus': {'pressDown': 'щ', 'pressUp': 'Щ', 'caps': "Щ", 'shiftCaps': 'щ'}
     },
     {'className': 'KeyP',
-      'eng': {'pressDown': 'p', 'pressUp': 'P'},
-      'rus': {'pressDown': 'з', 'pressUp': 'З'}
+      'eng': {'pressDown': 'p', 'pressUp': 'P', 'caps': "P", 'shiftCaps': 'p'},
+      'rus': {'pressDown': 'з', 'pressUp': 'З', 'caps': "З", 'shiftCaps': 'з'}
     },
     {'className': 'BracketLeft',
       'eng': {'pressDown': '[', 'pressUp': '{', 'caps': '[', 'shiftCaps': '{'},
@@ -116,55 +116,51 @@ export const keys = [
       'rus': {'pressDown': '\\', 'pressUp': '/', 'caps': '\\', 'shiftCaps': '/'}
     },
     {'className': 'Delete',
-      'eng': {'pressDown': 'Del', 'pressUp': 'Del'},
-      'rus': {'pressDown': 'Del', 'pressUp': 'Del'}
+      'eng': {'pressDown': 'Del', 'pressUp': 'Del', 'caps': 'Del', 'shiftCaps': 'Del'},
+      'rus': {'pressDown': 'Del', 'pressUp': 'Del', 'caps': 'Del', 'shiftCaps': 'Del'}
     },
   ],
 
   [
     {'className': 'CapsLock', 
-      'eng': {'pressDown': 'CapsLock', 'pressUp': 'CapsLock'},
-      'rus': {'pressDown': 'CapsLock', 'pressUp': 'CapsLock'}
+      'eng': {'pressDown': 'CapsLock', 'pressUp': 'CapsLock', 'caps': 'CapsLock', 'shiftCaps': 'CapsLock'},
+      'rus': {'pressDown': 'CapsLock', 'pressUp': 'CapsLock', 'caps': 'CapsLock', 'shiftCaps': 'CapsLock'}
     },
     {'className': 'KeyA', 
-      'eng': {'pressDown': 'a', 'pressUp': 'A'},
-      'rus': {'pressDown': 'й', 'pressUp': 'Й'}
+      'eng': {'pressDown': 'a', 'pressUp': 'A', 'caps': "A", 'shiftCaps': 'a'},
+      'rus': {'pressDown': 'ф', 'pressUp': 'Ф', 'caps': "Ф", 'shiftCaps': 'ф'}
     },
     {'className': 'KeyS', 
-      'eng': {'pressDown': 's', 'pressUp': 'S'},
-      'rus': {'pressDown': 'ц', 'pressUp': 'Ц'}
-    },
-    {'className': 'KeyE',
-      'eng': {'pressDown': 'e', 'pressUp': 'E'},
-      'rus': {'pressDown': 'у', 'pressUp': 'У'}
+      'eng': {'pressDown': 's', 'pressUp': 'S', 'caps': "S", 'shiftCaps': 's'},
+      'rus': {'pressDown': 'ы', 'pressUp': 'Ы', 'caps': "Ы", 'shiftCaps': 'ы'}
     },
     {'className': 'KeyD',
-      'eng': {'pressDown': 'd', 'pressUp': 'D'},
-      'rus': {'pressDown': 'к', 'pressUp': 'К'}
+      'eng': {'pressDown': 'd', 'pressUp': 'D', 'caps': "D", 'shiftCaps': 'd'},
+      'rus': {'pressDown': 'в', 'pressUp': 'В', 'caps': "В", 'shiftCaps': 'в'}
     },
     {'className': 'KeyF',
-      'eng': {'pressDown': 'f', 'pressUp': 'F'},
-      'rus': {'pressDown': 'е', 'pressUp': 'Е'}
+      'eng': {'pressDown': 'f', 'pressUp': 'F', 'caps': "F", 'shiftCaps': 'f'},
+      'rus': {'pressDown': 'а', 'pressUp': 'А', 'caps': "А", 'shiftCaps': 'а'}
     },
     {'className': 'KeyG',
-      'eng': {'pressDown': 'g', 'pressUp': 'G'},
-      'rus': {'pressDown': 'н', 'pressUp': 'Н'}
+      'eng': {'pressDown': 'g', 'pressUp': 'G', 'caps': "G", 'shiftCaps': 'g'},
+      'rus': {'pressDown': 'п', 'pressUp': 'П', 'caps': "П", 'shiftCaps': 'п'}
     },
     {'className': 'KeyH',
-      'eng': {'pressDown': 'h', 'pressUp': 'H'},
-      'rus': {'pressDown': 'г', 'pressUp': 'Г'}
+      'eng': {'pressDown': 'h', 'pressUp': 'H', 'caps': "H", 'shiftCaps': 'h'},
+      'rus': {'pressDown': 'р', 'pressUp': 'Р', 'caps': "P", 'shiftCaps': 'p'}
     },
     {'className': 'KeyJ',
-      'eng': {'pressDown': 'j', 'pressUp': 'J'},
-      'rus': {'pressDown': 'ш', 'pressUp': 'Ш'}
+      'eng': {'pressDown': 'j', 'pressUp': 'J', 'caps': "J", 'shiftCaps': 'j'},
+      'rus': {'pressDown': 'о', 'pressUp': 'О', 'caps': "О", 'shiftCaps': 'о'}
     },
     {'className': 'KeyK', 
-      'eng': {'pressDown': 'k', 'pressUp': 'K'},
-      'rus': {'pressDown': 'щ', 'pressUp': 'Щ'}
+      'eng': {'pressDown': 'k', 'pressUp': 'K', 'caps': "K", 'shiftCaps': 'k'},
+      'rus': {'pressDown': 'л', 'pressUp': 'Л', 'caps': "Л", 'shiftCaps': 'л'}
     },
     {'className': 'KeyL',
-      'eng': {'pressDown': 'l', 'pressUp': 'L'},
-      'rus': {'pressDown': 'з', 'pressUp': 'З'}
+      'eng': {'pressDown': 'l', 'pressUp': 'L', 'caps': "L", 'shiftCaps': 'l'},
+      'rus': {'pressDown': 'д', 'pressUp': 'Д', 'caps': "Д", 'shiftCaps': 'д'}
     },
     {'className': 'Semicolon',
       'eng': {'pressDown': ';', 'pressUp': ':', 'caps': ';', 'shiftCaps': ':'},
@@ -175,43 +171,43 @@ export const keys = [
       'rus': {'pressDown': 'э', 'pressUp': 'Э', 'caps': 'Э', 'shiftCaps': 'э'}
     },
     {'className': 'Enter',
-      'eng': {'pressDown': 'Enter', 'pressUp': 'Enter'},
-      'rus': {'pressDown': 'Enter', 'pressUp': 'Enter'}
+      'eng': {'pressDown': 'Enter', 'pressUp': 'Enter', 'caps': 'Enter', 'shiftCaps': 'Enter'},
+      'rus': {'pressDown': 'Enter', 'pressUp': 'Enter', 'caps': 'Enter', 'shiftCaps': 'Enter'}
     },
   ],
 
   [
     {'className': 'ShiftLeft', 
-      'eng': {'pressDown': 'Shift', 'pressUp': 'Shift'},
-      'rus': {'pressDown': 'Shift', 'pressUp': 'Shift'}
+      'eng': {'pressDown': 'Shift', 'pressUp': 'Shift', 'caps': 'Shift', 'shiftCaps': 'Shift'},
+      'rus': {'pressDown': 'Shift', 'pressUp': 'Shift', 'caps': 'Shift', 'shiftCaps': 'Shift'}
     },
     {'className': 'KeyZ', 
-      'eng': {'pressDown': 'z', 'pressUp': 'Z'},
-      'rus': {'pressDown': 'я', 'pressUp': 'Я'}
+      'eng': {'pressDown': 'z', 'pressUp': 'Z', 'caps': 'Z', 'shiftCaps': 'z'},
+      'rus': {'pressDown': 'я', 'pressUp': 'Я', 'caps': 'Я', 'shiftCaps': 'я'}
     },
     {'className': 'KeyX', 
-      'eng': {'pressDown': 'x', 'pressUp': 'X'},
-      'rus': {'pressDown': 'ч', 'pressUp': 'Ч'}
+      'eng': {'pressDown': 'x', 'pressUp': 'X', 'caps': 'X', 'shiftCaps': 'x'},
+      'rus': {'pressDown': 'ч', 'pressUp': 'Ч', 'caps': 'Ч', 'shiftCaps': 'ч'}
     },
     {'className': 'KeyC',
-      'eng': {'pressDown': 'c', 'pressUp': 'C'},
-      'rus': {'pressDown': 'с', 'pressUp': 'С'}
+      'eng': {'pressDown': 'c', 'pressUp': 'C', 'caps': 'C', 'shiftCaps': 'c'},
+      'rus': {'pressDown': 'с', 'pressUp': 'С', 'caps': 'С', 'shiftCaps': 'с'}
     },
     {'className': 'KeyV',
-      'eng': {'pressDown': 'v', 'pressUp': 'V'},
-      'rus': {'pressDown': 'м', 'pressUp': 'М'}
+      'eng': {'pressDown': 'v', 'pressUp': 'V', 'caps': 'V', 'shiftCaps': 'v'},
+      'rus': {'pressDown': 'м', 'pressUp': 'М', 'caps': 'М', 'shiftCaps': 'м'}
     },
     {'className': 'KeyB',
-      'eng': {'pressDown': 'b', 'pressUp': 'B'},
-      'rus': {'pressDown': 'и', 'pressUp': 'И'}
+      'eng': {'pressDown': 'b', 'pressUp': 'B', 'caps': 'B', 'shiftCaps': 'b'},
+      'rus': {'pressDown': 'и', 'pressUp': 'И', 'caps': 'И', 'shiftCaps': 'и'}
     },
     {'className': 'KeyN',
-      'eng': {'pressDown': 'n', 'pressUp': 'N'},
-      'rus': {'pressDown': 'т', 'pressUp': 'Т'}
+      'eng': {'pressDown': 'n', 'pressUp': 'N', 'caps': 'N', 'shiftCaps': 'n'},
+      'rus': {'pressDown': 'т', 'pressUp': 'Т', 'caps': 'Т', 'shiftCaps': 'т'}
     },
     {'className': 'KeyM',
-      'eng': {'pressDown': 'm', 'pressUp': 'M'},
-      'rus': {'pressDown': 'ь', 'pressUp': 'Ь'}
+      'eng': {'pressDown': 'm', 'pressUp': 'M', 'caps': 'M', 'shiftCaps': 'm'},
+      'rus': {'pressDown': 'ь', 'pressUp': 'Ь', 'caps': 'Ь', 'shiftCaps': 'ь'}
     },
     {'className': 'Comma',
       'eng': {'pressDown': ',', 'pressUp': '<', 'caps': ',', 'shiftCaps': '<'},
@@ -226,51 +222,51 @@ export const keys = [
       'rus': {'pressDown': '.', 'pressUp': ',', 'caps': '.', 'shiftCaps': ','}
     },
     {'className': 'ArrowUp',
-      'eng': {'pressDown': '▲', 'pressUp': '▲'},
-      'rus': {'pressDown': '▲', 'pressUp': '▲'}
+      'eng': {'pressDown': '▲', 'pressUp': '▲', 'caps': '▲', 'shiftCaps': '▲'},
+      'rus': {'pressDown': '▲', 'pressUp': '▲', 'caps': '▲', 'shiftCaps': '▲'}
     },
     {'className': 'ShiftRight', 
-      'eng': {'pressDown': 'Shift', 'pressUp': 'Shift'},
-      'rus': {'pressDown': 'Shift', 'pressUp': 'Shift'}
+      'eng': {'pressDown': 'Shift', 'pressUp': 'Shift', 'caps': 'Shift', 'shiftCaps': 'Shift'},
+      'rus': {'pressDown': 'Shift', 'pressUp': 'Shift', 'caps': 'Shift', 'shiftCaps': 'Shift'}
     },
   ],
 
   [
     {'className': 'ControlLeft', 
-      'eng': {'pressDown': 'Ctrl', 'pressUp': 'Ctrl'},
-      'rus': {'pressDown': 'Ctrl', 'pressUp': 'Ctrl'}
+      'eng': {'pressDown': 'Ctrl', 'pressUp': 'Ctrl', 'caps': 'Ctrl', 'shiftCaps': 'Ctrl'},
+      'rus': {'pressDown': 'Ctrl', 'pressUp': 'Ctrl', 'caps': 'Ctrl', 'shiftCaps': 'Ctrl'}
     },
     {'className': 'MetaLeft', 
-      'eng': {'pressDown': 'Win', 'pressUp': 'Win'},
-      'rus': {'pressDown': 'Win', 'pressUp': 'Win'}
+      'eng': {'pressDown': 'Win', 'pressUp': 'Win', 'caps': 'Win', 'shiftCaps': 'Win'},
+      'rus': {'pressDown': 'Win', 'pressUp': 'Win', 'caps': 'Win', 'shiftCaps': 'Win'}
     },
     {'className': 'AltLeft', 
-      'eng': {'pressDown': 'Alt', 'pressUp': 'Alt'},
-      'rus': {'pressDown': 'Alt', 'pressUp': 'Alt'}
+      'eng': {'pressDown': 'Alt', 'pressUp': 'Alt', 'caps': 'Alt', 'shiftCaps': 'Alt'},
+      'rus': {'pressDown': 'Alt', 'pressUp': 'Alt', 'caps': 'Alt', 'shiftCaps': 'Alt'}
     },
     {'className': 'Space',
-      'eng': {'pressDown': ' ', 'pressUp': ' '},
-      'rus': {'pressDown': ' ', 'pressUp': ' '}
+      'eng': {'pressDown': ' ', 'pressUp': ' ', 'caps': ' ', 'shiftCaps': ' '},
+      'rus': {'pressDown': ' ', 'pressUp': ' ', 'caps': ' ', 'shiftCaps': ' '}
     },
     {'className': 'AltRight',
-      'eng': {'pressDown': 'Alt', 'pressUp': 'Alt'},
-      'rus': {'pressDown': 'Alt', 'pressUp': 'Alt'}
+      'eng': {'pressDown': 'Alt', 'pressUp': 'Alt', 'caps': 'Alt', 'shiftCaps': 'Alt'},
+      'rus': {'pressDown': 'Alt', 'pressUp': 'Alt', 'caps': 'Alt', 'shiftCaps': 'Alt'}
     },
     {'className': 'ArrowLeft',
-      'eng': {'pressDown': '◀', 'pressUp': '◀'},
-      'rus': {'pressDown': '◀', 'pressUp': '◀'}
+      'eng': {'pressDown': '◀', 'pressUp': '◀', 'caps': '◀', 'shiftCaps': '◀'},
+      'rus': {'pressDown': '◀', 'pressUp': '◀', 'caps': '◀', 'shiftCaps': '◀'}
     },
     {'className': 'ArrowDown',
-      'eng': {'pressDown': '▼', 'pressUp': '▼'},
-      'rus': {'pressDown': '▼', 'pressUp': '▼'}
+      'eng': {'pressDown': '▼', 'pressUp': '▼', 'caps': '▼', 'shiftCaps': '▼'},
+      'rus': {'pressDown': '▼', 'pressUp': '▼', 'caps': '▼', 'shiftCaps': '▼'}
     },
     {'className': 'ArrowRight',
-      'eng': {'pressDown': '▶', 'pressUp': '▶'},
-      'rus': {'pressDown': '▶', 'pressUp': '▶'}
+      'eng': {'pressDown': '▶', 'pressUp': '▶', 'caps': '▶', 'shiftCaps': '▶'},
+      'rus': {'pressDown': '▶', 'pressUp': '▶', 'caps': '▶', 'shiftCaps': '▶'}
     },
     {'className': 'ControlRight',
-      'eng': {'pressDown': 'Ctrl', 'pressUp': 'Ctrl'},
-      'rus': {'pressDown': 'Ctrl', 'pressUp': 'Ctrl'},
+      'eng': {'pressDown': 'Ctrl', 'pressUp': 'Ctrl', 'caps': 'Ctrl', 'shiftCaps': 'Ctrl'},
+      'rus': {'pressDown': 'Ctrl', 'pressUp': 'Ctrl', 'caps': 'Ctrl', 'shiftCaps': 'Ctrl'},
     },
   ],
 ]

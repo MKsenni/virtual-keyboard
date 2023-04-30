@@ -330,6 +330,28 @@ export const createKeyboard = (keys) => {
     } 
   })
 
+  
+  document.addEventListener('keydown', (event) => {
+    event.preventDefault();
+    // console.log('hm');
+    if (event.altKey && event.ctrlKey) {
+      console.log('yeeeeeah');
+    }
+
+  })
+
+  document.addEventListener('keydown', (event) => {
+    event.preventDefault();
+    if (event.code == 'CapsLock') {
+      for (let i = 0; i < arrLettersEngCaps.length; i += 1) {
+        arrLettersEngCaps[i].classList.toggle('hidden');
+      }
+      for (let i = 0; i < arrLettersEngDown.length; i += 1) {
+        arrLettersEngDown[i].classList.toggle('hidden');
+      } 
+    }
+  })
+
   return keyboard;
 }
 
