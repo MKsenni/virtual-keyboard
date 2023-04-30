@@ -34,9 +34,12 @@ export const createKeyboard = (keys) => {
     rowArr.push(row);
   }
 
+  let arrSpanEng = new Array();
   let arrLettersEngDown = new Array();
   let arrLettersEngUp = new Array();
   let arrLettersEngCaps = new Array();
+
+  let arrSpanRus = new Array();
   let arrLettersRusDown = new Array();
   let arrLettersRusUp = new Array();
   // let specialsSymbols = new Array();
@@ -46,6 +49,7 @@ export const createKeyboard = (keys) => {
     rowArr[0].append(buttonFirstRow);
 
     const spanEng = KeyButton.createSpanLanguage(buttonFirstRow, cssClasses.ENG);
+    arrSpanEng.push(spanEng);
 
     const pressDown =  createElement('span', cssClasses.DOWN);
     arrLettersEngDown.push(pressDown);
@@ -69,6 +73,7 @@ export const createKeyboard = (keys) => {
 
     const spanRus = KeyButton.createSpanLanguage(buttonFirstRow, cssClasses.RUS);
     spanRus.classList.add('hidden');
+    arrSpanRus.push(spanRus);
 
     const pressDownRus =  createElement('span', cssClasses.DOWN);
     arrLettersRusDown.push(pressDownRus);
@@ -96,6 +101,7 @@ export const createKeyboard = (keys) => {
     rowArr[1].append(buttonSecondRow);
 
     const spanEng = KeyButton.createSpanLanguage(buttonSecondRow, cssClasses.ENG);
+    arrSpanEng.push(spanEng);
     const pressDown =  createElement('span', cssClasses.DOWN);
     arrLettersEngDown.push(pressDown);
     pressDown.textContent = KeyButton.secondRow[i];
@@ -118,6 +124,7 @@ export const createKeyboard = (keys) => {
 
     const spanRus = KeyButton.createSpanLanguage(buttonSecondRow, cssClasses.RUS);
     spanRus.classList.add('hidden');
+    arrSpanRus.push(spanRus);
 
     const pressDownRus =  createElement('span', cssClasses.DOWN);
     arrLettersRusDown.push(pressDownRus);
@@ -139,10 +146,11 @@ export const createKeyboard = (keys) => {
     spanRus.append(pressDownRus, pressUpRus, capsRus, shiftCapsRus);
   }
   
-  for (let i = 0; i < 14; i += 1) {
+  for (let i = 0; i < 13; i += 1) {
     const buttonThirdRow  = createElement('button', cssClasses.KEY);
     rowArr[2].append(buttonThirdRow);
     const spanEng = KeyButton.createSpanLanguage(buttonThirdRow, cssClasses.ENG);
+    arrSpanEng.push(spanEng);
     const pressDown =  createElement('span', cssClasses.DOWN);
     arrLettersEngDown.push(pressDown);
     pressDown.textContent = KeyButton.thirdRow[i];
@@ -165,6 +173,7 @@ export const createKeyboard = (keys) => {
 
     const spanRus = KeyButton.createSpanLanguage(buttonThirdRow, cssClasses.RUS);
     spanRus.classList.add('hidden');
+    arrSpanRus.push(spanRus);
 
     const pressDownRus =  createElement('span', cssClasses.DOWN);
     arrLettersRusDown.push(pressDownRus);
@@ -190,6 +199,7 @@ export const createKeyboard = (keys) => {
     const buttonFourRow  = createElement('button', cssClasses.KEY);
     rowArr[3].append(buttonFourRow);
     const spanEng = KeyButton.createSpanLanguage(buttonFourRow, cssClasses.ENG);
+    arrSpanEng.push(spanEng);
     const pressDown =  createElement('span', cssClasses.DOWN);
     arrLettersEngDown.push(pressDown);
     pressDown.textContent = KeyButton.fourRow[i];
@@ -212,6 +222,7 @@ export const createKeyboard = (keys) => {
 
     const spanRus = KeyButton.createSpanLanguage(buttonFourRow, cssClasses.RUS);
     spanRus.classList.add('hidden');
+    arrSpanRus.push(spanRus);
 
     const pressDownRus =  createElement('span', cssClasses.DOWN);
     arrLettersRusDown.push(pressDownRus);
@@ -242,6 +253,7 @@ export const createKeyboard = (keys) => {
     const buttonFiveRow  = createElement('button', cssClasses.KEY);
     rowArr[4].append(buttonFiveRow);
     const spanEng = KeyButton.createSpanLanguage(buttonFiveRow, cssClasses.ENG);
+    arrSpanEng.push(spanEng);
     const pressDown =  createElement('span', cssClasses.DOWN);
     arrLettersEngDown.push(pressDown);
     pressDown.textContent = KeyButton.fiveRow[i];
@@ -264,6 +276,7 @@ export const createKeyboard = (keys) => {
 
     const spanRus = KeyButton.createSpanLanguage(buttonFiveRow, cssClasses.RUS);
     spanRus.classList.add('hidden');
+    arrSpanRus.push(spanRus);
 
     const pressDownRus =  createElement('span', cssClasses.DOWN);
     arrLettersRusDown.push(pressDownRus);
@@ -336,6 +349,10 @@ export const createKeyboard = (keys) => {
     // console.log('hm');
     if (event.altKey && event.ctrlKey) {
       console.log('yeeeeeah');
+      for (let i = 0; i < arrSpanEng.length; i += 1) {
+        arrSpanEng[i].classList.toggle('hidden');
+        arrSpanRus[i].classList.toggle('hidden');
+      }
     }
 
   })
