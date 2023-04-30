@@ -1,27 +1,56 @@
-.keyboard .textarea {
-  display: block;
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.keyboard {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 800px;
   margin: 0 auto;
-  width: 400px;
-  height: 150px;
+}
+
+.keyboard .textarea {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  width: 100%;
+  height: 250px;
   background-color: white;
 }
 
 .keyboard__wrapper {
-  margin: 0 auto;
   height: 300px;
 }
 
-.keyboard .key {
-  width: 50px;
-  height: 50px;
-  background-color: yellow;
+.keyboard__wrapper .keyboard__row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
 }
 
-.keyboard .key .eng .hidden {
+.keyboard__wrapper .keyboard__row .key {
+  flex-grow: 1;
+  padding: 15px 20px;
+  margin: 2px;
+  border: none;
+  background-color: #9e9e9e85;
+  border-radius: 15px;
+  cursor: pointer;
+}
+
+.keyboard__wrapper .keyboard__row .key .eng .hidden {
   display: none;
 }
 
-.keyboard .key .hidden {
+.keyboard__wrapper .keyboard__row .key .hidden {
   display: none;
 }
 /*# sourceMappingURL=style.css.map */

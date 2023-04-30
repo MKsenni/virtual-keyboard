@@ -1,39 +1,60 @@
 .keyboard {
-  // width: 800px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 800px;
+  margin: 0 auto;
   // height: 500px;
 
   .textarea {
-    display: block;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     margin: 0 auto;
-    width: 400px;
-    height: 150px;
+    width: 100%;
+    height: 250px;
     background-color: white;
   }
 
   &__wrapper {
     // width: 400px;
-    margin: 0 auto;
     height: 300px;
-  }
 
-  .key {
-    width: 50px;
-    height: 50px;
-    background-color: yellow;
+    .keyboard__row {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 0 auto;
 
-    .eng {
+      .key {
+        // width: 50px;
+        // height: 50px;
+        flex-grow: 1;
+        padding: 15px 20px;
+        margin: 2px;
+        border: none;
+        background-color: #9e9e9e85;
+        border-radius: 15px;
+        cursor: pointer;
+    
+        .eng {
+          
 
-      .hidden {
-        display: none;
+    
+          .hidden {
+            display: none;
+          }
+        }
+    
+        // .rus {
+    
+        // }
+    
+        .hidden {
+          display: none;
+        }
       }
     }
-
-    // .rus {
-
-    // }
-
-    .hidden {
-      display: none;
-    }
   }
+
 }
