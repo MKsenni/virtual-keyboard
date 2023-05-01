@@ -1,4 +1,4 @@
-import { keys } from "../../keys.js";
+import keys from '../../keys.js';
 import * as KeyBoard from './keyboard.js';
 
 // const cssClasses = {
@@ -12,36 +12,36 @@ import * as KeyBoard from './keyboard.js';
 // }
 
 const keyButtonEngDown = (data) => {
-  let btnsFirstRow = new Array();
+  const btnsFirstRow = [];
   for (let i = 0; i < data.length; i += 1) {
-    let button = data[i].eng.pressDown;
+    const button = data[i].eng.pressDown;
     btnsFirstRow.push(button);
   }
   return btnsFirstRow;
 };
 
 const keyButtonEngUp = (data) => {
-  let btnsFirstRow = new Array();
+  const btnsFirstRow = [];
   for (let i = 0; i < data.length; i += 1) {
-    let button = data[i].eng.pressUp;
+    const button = data[i].eng.pressUp;
     btnsFirstRow.push(button);
   }
   return btnsFirstRow;
 };
 
 const keyButtonEngCaps = (data) => {
-  let btnsFirstRow = new Array();
+  const btnsFirstRow = [];
   for (let i = 0; i < data.length; i += 1) {
-    let button = data[i].eng.caps;
+    const button = data[i].eng.caps;
     btnsFirstRow.push(button);
   }
   return btnsFirstRow;
 };
 
 const keyButtonEngShiftCaps = (data) => {
-  let btnsFirstRow = new Array();
+  const btnsFirstRow = [];
   for (let i = 0; i < data.length; i += 1) {
-    let button = data[i].eng.shiftCaps;
+    const button = data[i].eng.shiftCaps;
     btnsFirstRow.push(button);
   }
   return btnsFirstRow;
@@ -72,36 +72,36 @@ export const fourRowShiftCaps = keyButtonEngShiftCaps(keys[3]);
 export const fiveRowShiftCaps = keyButtonEngShiftCaps(keys[4]);
 
 const keyButtonRusDown = (data) => {
-  let btnsFirstRow = new Array();
+  const btnsFirstRow = [];
   for (let i = 0; i < data.length; i += 1) {
-    let button = data[i].rus.pressDown;
+    const button = data[i].rus.pressDown;
     btnsFirstRow.push(button);
   }
   return btnsFirstRow;
 };
 
 const keyButtonRusUp = (data) => {
-  let btnsFirstRow = new Array();
+  const btnsFirstRow = [];
   for (let i = 0; i < data.length; i += 1) {
-    let button = data[i].rus.pressUp;
+    const button = data[i].rus.pressUp;
     btnsFirstRow.push(button);
   }
   return btnsFirstRow;
 };
 
 const keyButtonRusCaps = (data) => {
-  let btnsFirstRow = new Array();
+  const btnsFirstRow = [];
   for (let i = 0; i < data.length; i += 1) {
-    let button = data[i].rus.caps;
+    const button = data[i].rus.caps;
     btnsFirstRow.push(button);
   }
   return btnsFirstRow;
 };
 
 const keyButtonRusShiftCaps = (data) => {
-  let btnsFirstRow = new Array();
+  const btnsFirstRow = [];
   for (let i = 0; i < data.length; i += 1) {
-    let button = data[i].rus.shiftCaps;
+    const button = data[i].rus.shiftCaps;
     btnsFirstRow.push(button);
   }
   return btnsFirstRow;
@@ -135,4 +135,4 @@ export const createSpanLanguage = (buttonNumberRow, cssClasses) => {
   const element = KeyBoard.createElement('span', cssClasses);
   buttonNumberRow.append(element);
   return element;
-}
+};
