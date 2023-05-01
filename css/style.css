@@ -2,6 +2,10 @@
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   margin: 0;
   padding: 0;
@@ -44,6 +48,7 @@ body {
   background-color: #9e9e9e85;
   border-radius: 15px;
   cursor: pointer;
+  transition: background-color 0.3s, border-radius 0.3s;
 }
 
 .keyboard__wrapper .keyboard__row .key .eng .hidden {
@@ -55,6 +60,11 @@ body {
 }
 
 .keyboard__wrapper .keyboard__row .highlight {
-  background-color: red;
+  background-color: #2a2a2a85;
+  border-radius: 50%;
+}
+
+.keyboard__wrapper .keyboard__row .active {
+  background-color: #347ca685;
 }
 /*# sourceMappingURL=style.css.map */

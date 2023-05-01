@@ -1,15 +1,10 @@
 import keys from '../../keys.js';
-import * as KeyBoard from './keyboard.js';
 
-// const cssClasses = {
-//   KEY: 'key',
-//   ENG: 'eng',
-//   RUS: 'rus',
-//   DOWN: 'pressDown',
-//   UP: 'pressUp',
-//   CAPS: 'caps',
-//   SHIFTCAPS: 'shiftCaps',
-// }
+const createElement = (tagName, className) => {
+  const element = document.createElement(tagName);
+  element.classList.add(className);
+  return element;
+};
 
 const keyButtonEngDown = (data) => {
   const btnsFirstRow = [];
@@ -132,7 +127,7 @@ export const fourRowShiftCapsRus = keyButtonRusShiftCaps(keys[3]);
 export const fiveRowShiftCapsRus = keyButtonRusShiftCaps(keys[4]);
 
 export const createSpanLanguage = (buttonNumberRow, cssClasses) => {
-  const element = KeyBoard.createElement('span', cssClasses);
+  const element = createElement('span', cssClasses);
   buttonNumberRow.append(element);
   return element;
 };

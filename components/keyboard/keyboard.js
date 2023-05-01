@@ -2,6 +2,7 @@ import * as KeyButton from './keyButton.js';
 
 const cssClasses = {
   KEYBOARD: 'keyboard',
+  TITLE: 'title',
   TEXTAREA: 'textarea',
   WRAPPER: 'keyboard__wrapper',
   ROW: 'keyboard__row',
@@ -12,6 +13,8 @@ const cssClasses = {
   UP: 'pressUp',
   CAPS: 'caps',
   SHIFTCAPS: 'shiftCaps',
+  DESCR: 'descr',
+  LANG: 'lang',
 };
 
 export const createElement = (tagName, className) => {
@@ -37,11 +40,24 @@ export const createKeyboard = (keys) => {
 
   const keyboard = createElement('section', cssClasses.KEYBOARD);
 
+  const title = createElement('h1', cssClasses.TITLE);
+  keyboard.append(title);
+  title.textContent = 'RSS Виртуальная клавиатура';
+
   const textArea = createElement('textarea', cssClasses.TEXTAREA);
-  keyboard.append(textArea);
+  title.append(textArea);
+  textArea.setAttribute('autofocus', '');
 
   const wrapper = createElement('div', cssClasses.WRAPPER);
   keyboard.append(wrapper);
+
+  const description = createElement('p', cssClasses.DESCR);
+  keyboard.append(description);
+  description.textContent = 'Клавиатура создана в операционной системе Windows';
+
+  const lang = createElement('p', cssClasses.LANG);
+  description.append(lang);
+  lang.textContent = 'Для переключения языка комбинация: ctrl + alt';
 
   const rowArr = [];
   for (let i = 0; i < 5; i += 1) {
@@ -59,10 +75,20 @@ export const createKeyboard = (keys) => {
   const arrSpanRus = [];
   const arrLettersRusDown = [];
   const arrLettersRusUp = [];
-  const arrLettersRusShiftCaps = [];
   const arrLettersRusCaps = [];
+  const arrLettersRusShiftCaps = [];
 
-  const specialsSymbols = [];
+  // const specialsSymbols = [];
+
+  const changeLanguage = (event) => {
+    if (event.altKey && event.ctrlKey) {
+      event.preventDefault();
+      for (let i = 0; i < arrSpanEng.length; i += 1) {
+        arrSpanEng[i].classList.toggle('hidden');
+        arrSpanRus[i].classList.toggle('hidden');
+      }
+    }
+  };
 
   for (let i = 0; i < 14; i += 1) {
     const buttonFirstRow = createElement('button', cssClasses.KEY);
@@ -87,6 +113,7 @@ export const createKeyboard = (keys) => {
 
     const shiftCaps = createElement('span', cssClasses.SHIFTCAPS);
     shiftCaps.classList.add('hidden');
+    arrLettersEngShiftCaps.push(shiftCaps);
     shiftCaps.textContent = KeyButton.firstRowShiftCaps[i];
 
     spanEng.append(pressDown, pressUp, caps, shiftCaps);
@@ -106,10 +133,12 @@ export const createKeyboard = (keys) => {
 
     const capsRus = createElement('span', cssClasses.CAPS);
     capsRus.classList.add('hidden');
+    arrLettersRusCaps.push(capsRus);
     capsRus.textContent = KeyButton.firstRowCapsRus[i];
 
     const shiftCapsRus = createElement('span', cssClasses.SHIFTCAPS);
     shiftCapsRus.classList.add('hidden');
+    arrLettersRusShiftCaps.push(shiftCapsRus);
     shiftCapsRus.textContent = KeyButton.firstRowShiftCapsRus[i];
 
     spanRus.append(pressDownRus, pressUpRus, capsRus, shiftCapsRus);
@@ -137,6 +166,7 @@ export const createKeyboard = (keys) => {
 
     const shiftCaps = createElement('span', cssClasses.SHIFTCAPS);
     shiftCaps.classList.add('hidden');
+    arrLettersEngShiftCaps.push(shiftCaps);
     shiftCaps.textContent = KeyButton.secondRowShiftCaps[i];
 
     spanEng.append(pressDown, pressUp, caps, shiftCaps);
@@ -156,10 +186,12 @@ export const createKeyboard = (keys) => {
 
     const capsRus = createElement('span', cssClasses.CAPS);
     capsRus.classList.add('hidden');
+    arrLettersRusCaps.push(capsRus);
     capsRus.textContent = KeyButton.secondRowCapsRus[i];
 
     const shiftCapsRus = createElement('span', cssClasses.SHIFTCAPS);
     shiftCapsRus.classList.add('hidden');
+    arrLettersRusShiftCaps.push(shiftCapsRus);
     shiftCapsRus.textContent = KeyButton.secondRowShiftCapsRus[i];
 
     spanRus.append(pressDownRus, pressUpRus, capsRus, shiftCapsRus);
@@ -186,6 +218,7 @@ export const createKeyboard = (keys) => {
 
     const shiftCaps = createElement('span', cssClasses.SHIFTCAPS);
     shiftCaps.classList.add('hidden');
+    arrLettersEngShiftCaps.push(shiftCaps);
     shiftCaps.textContent = KeyButton.thirdRowShiftCaps[i];
 
     spanEng.append(pressDown, pressUp, caps, shiftCaps);
@@ -205,10 +238,12 @@ export const createKeyboard = (keys) => {
 
     const capsRus = createElement('span', cssClasses.CAPS);
     capsRus.classList.add('hidden');
+    arrLettersRusCaps.push(capsRus);
     capsRus.textContent = KeyButton.thirdRowCapsRus[i];
 
     const shiftCapsRus = createElement('span', cssClasses.SHIFTCAPS);
     shiftCapsRus.classList.add('hidden');
+    arrLettersRusShiftCaps.push(shiftCapsRus);
     shiftCapsRus.textContent = KeyButton.thirdRowShiftCapsRus[i];
 
     spanRus.append(pressDownRus, pressUpRus, capsRus, shiftCapsRus);
@@ -235,6 +270,7 @@ export const createKeyboard = (keys) => {
 
     const shiftCaps = createElement('span', cssClasses.SHIFTCAPS);
     shiftCaps.classList.add('hidden');
+    arrLettersEngShiftCaps.push(shiftCaps);
     shiftCaps.textContent = KeyButton.fourRowShiftCaps[i];
 
     spanEng.append(pressDown, pressUp, caps, shiftCaps);
@@ -254,10 +290,12 @@ export const createKeyboard = (keys) => {
 
     const capsRus = createElement('span', cssClasses.CAPS);
     capsRus.classList.add('hidden');
+    arrLettersRusCaps.push(capsRus);
     capsRus.textContent = KeyButton.fourRowCapsRus[i];
 
     const shiftCapsRus = createElement('span', cssClasses.SHIFTCAPS);
     shiftCapsRus.classList.add('hidden');
+    arrLettersRusShiftCaps.push(shiftCapsRus);
     shiftCapsRus.textContent = KeyButton.fourRowShiftCapsRus[i];
 
     spanRus.append(pressDownRus, pressUpRus, capsRus, shiftCapsRus);
@@ -284,6 +322,7 @@ export const createKeyboard = (keys) => {
 
     const shiftCaps = createElement('span', cssClasses.SHIFTCAPS);
     shiftCaps.classList.add('hidden');
+    arrLettersEngShiftCaps.push(shiftCaps);
     shiftCaps.textContent = KeyButton.fiveRowShiftCaps[i];
 
     spanEng.append(pressDown, pressUp, caps, shiftCaps);
@@ -303,29 +342,31 @@ export const createKeyboard = (keys) => {
 
     const capsRus = createElement('span', cssClasses.CAPS);
     capsRus.classList.add('hidden');
+    arrLettersRusCaps.push(capsRus);
     capsRus.textContent = KeyButton.fiveRowCapsRus[i];
 
     const shiftCapsRus = createElement('span', cssClasses.SHIFTCAPS);
     shiftCapsRus.classList.add('hidden');
+    arrLettersRusShiftCaps.push(shiftCapsRus);
     shiftCapsRus.textContent = KeyButton.fiveRowShiftCapsRus[i];
 
     spanRus.append(pressDownRus, pressUpRus, capsRus, shiftCapsRus);
   }
-
+  // SHIFT to mouse
   rowArr[3].firstChild.addEventListener('mousedown', () => {
     for (let i = 0; i < arrLettersEngUp.length; i += 1) {
       arrLettersEngDown[i].classList.add('hidden');
       arrLettersEngUp[i].classList.remove('hidden');
     }
   });
-
+  // SHIFT to mouse
   rowArr[3].firstChild.addEventListener('mouseup', () => {
     for (let i = 0; i < arrLettersEngUp.length; i += 1) {
       arrLettersEngDown[i].classList.remove('hidden');
       arrLettersEngUp[i].classList.add('hidden');
     }
   });
-
+  // SHIFT to mouse
   rowArr[3].lastChild.addEventListener('mousedown', () => {
     for (let i = 0; i < arrLettersEngUp.length; i += 1) {
       arrLettersEngDown[i].classList.add('hidden');
@@ -333,6 +374,7 @@ export const createKeyboard = (keys) => {
     }
   });
 
+  // SHIFT to mouse
   rowArr[3].lastChild.addEventListener('mouseup', () => {
     for (let i = 0; i < arrLettersEngUp.length; i += 1) {
       arrLettersEngDown[i].classList.remove('hidden');
@@ -340,12 +382,13 @@ export const createKeyboard = (keys) => {
     }
   });
 
+  // capslock mouse
   rowArr[2].firstChild.addEventListener('click', (event) => {
-    // event.preventDefault();
+    event.preventDefault();
     const { target } = event;
     if (target) {
-      console.log('sssss');
-      rowArr[2].firstChild.classList.add('highlight');
+      // console.log('sssss');
+      // rowArr[2].firstChild.classList.add('hover');
     }
     for (let i = 0; i < arrLettersEngCaps.length; i += 1) {
       arrLettersEngCaps[i].classList.toggle('hidden');
@@ -353,54 +396,49 @@ export const createKeyboard = (keys) => {
     }
   });
 
-  document.addEventListener('keydown', (event) => {
-    if (event.altKey && event.ctrlKey) {
-      event.preventDefault();
-      for (let i = 0; i < arrSpanEng.length; i += 1) {
-        arrSpanEng[i].classList.toggle('hidden');
-        arrSpanRus[i].classList.toggle('hidden');
-      }
+  // tab by mouse
+  rowArr[1].firstChild.addEventListener('click', (event) => {
+    const { target } = event;
+    if (target) {
+      textArea.value += '\t';
     }
   });
 
+  // enter by mouse
+  rowArr[2].lastChild.addEventListener('click', (event) => {
+    const { target } = event;
+    if (target) {
+      textArea.value += '\n';
+    }
+  });
+
+  // backspace mouse
+  rowArr[0].lastChild.addEventListener('click', (event) => {
+    const { target } = event;
+    if (target) {
+      textArea.value = textArea.value.slice(0, -1);
+    }
+  });
+
+  // capslock, shift on buttons, change language on buttons, tab, enter. backspace
   document.addEventListener('keydown', (event) => {
     event.preventDefault();
+
+    changeLanguage(event);
+
     if (event.code === 'CapsLock') {
       for (let i = 0; i < arrLettersEngCaps.length; i += 1) {
         arrLettersEngCaps[i].classList.toggle('hidden');
         arrLettersEngDown[i].classList.toggle('hidden');
       }
     }
-  });
 
-  wrapper.addEventListener('mousedown', (event) => {
-    event.preventDefault();
-    const button = event.target.closest('button');
-    // const mains = button.classList.contains('.hidden');
-
-    if (!button) return;
-
-    if (!wrapper.contains(button)) return;
-
-    if (!(button.classList.contains('.hidden'))) {
-      // console.log('pppppp');
+    if (event.key === 'Shift') {
+      for (let i = 0; i < arrLettersEngUp.length; i += 1) {
+        arrLettersEngDown[i].classList.add('hidden');
+        arrLettersEngUp[i].classList.remove('hidden');
+      }
     }
-    // console.log(mains);
-
-    highlight(button);
-  }, true);
-
-  wrapper.addEventListener('mouseup', (event) => {
-    event.preventDefault();
-    const button = event.target.closest('button');
-    deleteHighlight(button);
-  });
-
-  document.addEventListener('keydown', (event) => {
-    // event.preventDefault();
-    const { target } = event;
-
-    textArea.value += event.key;
 
     if (event.code === 'Enter') {
       textArea.value += '\n';
@@ -411,24 +449,76 @@ export const createKeyboard = (keys) => {
     }
 
     if (event.code === 'Backspace') {
-      textArea.value = textArea.value.slice(0, -10);
+      textArea.value = textArea.value.slice(0, -1);
     }
 
+    if (event.code === 'ArrowUp') {
+      textArea.value += '▲';
+    }
+
+    if (event.code === 'ArrowDown') {
+      textArea.value += '▼';
+    }
+
+    if (event.code === 'ArrowLeft') {
+      textArea.value += '◄';
+    }
+
+    if (event.code === 'ArrowRight') {
+      textArea.value += '►';
+    }
+  });
+  // on highlight mouse
+  wrapper.addEventListener('mousedown', (event) => {
+    event.preventDefault();
+    const button = event.target.closest('button');
+    // const mains = !button.classList.contains('.hidden');
+
+    if (!button) return;
+
+    if (!wrapper.contains(button)) return;
+
+    // if (!(button.closest('.hidden'))) {
+    //   // console.log('pppppp');
+    // }
+    // console.log(mains.innerHTML);
+
+    highlight(button);
+  });
+  // off  highlight mouse
+  wrapper.addEventListener('mouseup', (event) => {
+    event.preventDefault();
+    const button = event.target.closest('button');
+    deleteHighlight(button);
+  });
+
+  wrapper.addEventListener('keydown', (event) => {
+    event.preventDefault();
+    const { target } = event.classList('.key');
+
+    // console.log(target);
+    // textArea.value += event.key;
     // console.log(button);
-    if (target) {
-      console.log('down');
+    if (event.code !== '') {
       highlight(target);
     }
   });
 
-  document.addEventListener('keyup', (event) => {
+  keyboard.addEventListener('keyup', (event) => {
     // event.preventDefault();
     const { target } = event;
 
     // console.log(button);
     if (target) {
-      console.log('up');
+      // console.log('up');
       deleteHighlight(target);
+    }
+
+    if (event.key === 'Shift') {
+      for (let i = 0; i < arrLettersEngUp.length; i += 1) {
+        arrLettersEngDown[i].classList.remove('hidden');
+        arrLettersEngUp[i].classList.add('hidden');
+      }
     }
   });
 

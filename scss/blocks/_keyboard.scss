@@ -36,6 +36,7 @@
         background-color: #9e9e9e85;
         border-radius: 15px;
         cursor: pointer;
+        transition: background-color 0.3s, border-radius 0.3s;
     
         .eng {
           
@@ -56,8 +57,15 @@
       }
 
       .highlight {
-        background-color: red;
+        background-color: #2a2a2a85;
+        border-radius: 50%;
+        // pointer-events: none;
       }
+
+      .active {
+        background-color: #347ca685;
+      }
+
     }
   }
 
