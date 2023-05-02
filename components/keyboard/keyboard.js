@@ -492,6 +492,15 @@ export const createKeyboard = (keys) => {
     deleteHighlight(button);
   });
 
+  // add text in textarea
+  wrapper.addEventListener('click', (event) => {
+    const clickButton = event.target.closest('button');
+    if (!clickButton) return;
+    if (clickButton) {
+      textArea.value += clickButton.innerText;
+    }
+  });
+
   wrapper.addEventListener('keydown', (event) => {
     event.preventDefault();
     const { target } = event.classList('.key');
