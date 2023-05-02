@@ -9,14 +9,16 @@ html {
 body {
   margin: 0;
   padding: 0;
+  background-color: #7d8286;
 }
 
 .keyboard {
   display: flex;
   flex-direction: column;
-  gap: 20px;
-  width: 800px;
+  gap: 10px;
+  width: 850px;
   margin: 0 auto;
+  text-align: center;
 }
 
 .keyboard .textarea {
@@ -26,11 +28,14 @@ body {
   margin: 0 auto;
   width: 100%;
   height: 250px;
-  background-color: white;
+  background-color: #c2c4c5;
+  border-radius: 5px;
 }
 
 .keyboard__wrapper {
-  height: 300px;
+  border-radius: 5px;
+  background-color: #3a3a3a;
+  padding: 2px;
 }
 
 .keyboard__wrapper .keyboard__row {
@@ -40,13 +45,31 @@ body {
   margin: 0 auto;
 }
 
+.keyboard__wrapper .keyboard__row:nth-child(3) .key:last-child {
+  width: 100px;
+}
+
+.keyboard__wrapper .keyboard__row:nth-child(4) .key:first-child {
+  width: 90px;
+}
+
+.keyboard__wrapper .keyboard__row:nth-child(4) .key:last-child {
+  width: 113px;
+}
+
+.keyboard__wrapper .keyboard__row:last-child .key:nth-child(4) {
+  width: 350px;
+  height: 47px;
+}
+
 .keyboard__wrapper .keyboard__row .key {
   flex-grow: 1;
   padding: 15px 20px;
   margin: 2px;
-  border: none;
-  background-color: #9e9e9e85;
-  border-radius: 15px;
+  border: 1px solid #393a3c;
+  box-shadow: 0px 0px 2px 0px #EEEEEE;
+  background-color: #9e9e9e;
+  border-radius: 10px;
   cursor: pointer;
   transition: background-color 0.3s, border-radius 0.3s;
 }
@@ -61,7 +84,7 @@ body {
 
 .keyboard__wrapper .keyboard__row .highlight {
   background-color: #2a2a2a85;
-  border-radius: 50%;
+  box-shadow: inset 0px 0px 3px 0px #2d2b2b;
 }
 
 .keyboard__wrapper .keyboard__row .active {

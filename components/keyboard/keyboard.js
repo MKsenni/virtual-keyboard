@@ -45,7 +45,7 @@ export const createKeyboard = (keys) => {
   title.textContent = 'RSS Виртуальная клавиатура';
 
   const textArea = createElement('textarea', cssClasses.TEXTAREA);
-  title.append(textArea);
+  keyboard.append(textArea);
   textArea.setAttribute('autofocus', '');
 
   const wrapper = createElement('div', cssClasses.WRAPPER);
