@@ -45,7 +45,7 @@ export const createKeyboard = (keys) => {
   title.textContent = 'RSS Виртуальная клавиатура';
 
   const textArea = createElement('textarea', cssClasses.TEXTAREA);
-  title.append(textArea);
+  keyboard.append(textArea);
   textArea.setAttribute('autofocus', '');
 
   const wrapper = createElement('div', cssClasses.WRAPPER);
@@ -490,6 +490,15 @@ export const createKeyboard = (keys) => {
     event.preventDefault();
     const button = event.target.closest('button');
     deleteHighlight(button);
+  });
+
+  // add text in textarea
+  wrapper.addEventListener('click', (event) => {
+    const clickButton = event.target.closest('button');
+    if (!clickButton) return;
+    if (clickButton) {
+      textArea.value += clickButton.innerText;
+    }
   });
 
   wrapper.addEventListener('keydown', (event) => {
