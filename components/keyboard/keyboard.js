@@ -437,6 +437,7 @@ export const createKeyboard = (keys) => {
       for (let i = 0; i < arrLettersEngUp.length; i += 1) {
         arrLettersEngDown[i].classList.add('hidden');
         arrLettersEngUp[i].classList.remove('hidden');
+        arrLettersEngCaps[i].classList.add('hidden');
       }
     }
 
@@ -467,6 +468,8 @@ export const createKeyboard = (keys) => {
     if (event.code === 'ArrowRight') {
       textArea.value += '►';
     }
+
+    textArea.focus();
   });
   // on highlight mouse
   wrapper.addEventListener('mousedown', (event) => {
@@ -497,31 +500,36 @@ export const createKeyboard = (keys) => {
     const clickButton = event.target.closest('button');
     if (!clickButton) return;
     if (clickButton) {
-      textArea.value += clickButton.innerText;
+      if (clickButton.innerText === 'Backspace' || clickButton.innerText === 'Enter' || clickButton.innerText === 'Tab' || clickButton.innerText === 'Del' || clickButton.innerText === 'CapsLock' || clickButton.innerText === 'Shift' || clickButton.innerText === 'Alt' || clickButton.innerText === 'Win' || clickButton.innerText === 'Ctrl') {
+        textArea.value += '';
+      } else {
+        textArea.value += clickButton.innerText;
+      }
     }
+    textArea.focus();
   });
 
-  wrapper.addEventListener('keydown', (event) => {
+  document.addEventListener('keydown', (event) => {
     event.preventDefault();
-    const { target } = event.classList('.key');
+    const clickButton = event;
 
-    // console.log(target);
-    // textArea.value += event.key;
-    // console.log(button);
-    if (event.code !== '') {
-      highlight(target);
+    if (!clickButton) return;
+
+    for (let i = 0; i < keys.length; i += 1) {
+      for (let j = 0; j < keys[i].length; j += 1) {
+        if (clickButton.code === keys[i][j].className) {
+          if (clickButton.code === 'Backspace' || clickButton.code === 'Enter' || clickButton.code === 'Tab' || clickButton.code === 'Delete' || clickButton.code === 'CapsLock' || clickButton.code === 'ShiftLeft' || clickButton.code === 'ShiftRight' || clickButton.code === 'AltLeft' || clickButton.code === 'MetaLeft' || clickButton.code === 'ControlLeft' || clickButton.code === 'Space' || clickButton.code === 'AltRight') {
+            textArea.value += '';
+          } else {
+            textArea.value += keys[i][j].eng.pressDown;
+          }
+        }
+      }
     }
   });
 
-  keyboard.addEventListener('keyup', (event) => {
-    // event.preventDefault();
-    const { target } = event;
-
-    // console.log(button);
-    if (target) {
-      // console.log('up');
-      deleteHighlight(target);
-    }
+  document.addEventListener('keyup', (event) => {
+    event.preventDefault();
 
     if (event.key === 'Shift') {
       for (let i = 0; i < arrLettersEngUp.length; i += 1) {
