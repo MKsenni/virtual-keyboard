@@ -423,6 +423,7 @@ export const createKeyboard = (keys) => {
   // capslock, shift on buttons, change language on buttons, tab, enter. backspace
   document.addEventListener('keydown', (event) => {
     event.preventDefault();
+    event.stopPropagation();
 
     changeLanguage(event);
 
@@ -453,20 +454,8 @@ export const createKeyboard = (keys) => {
       textArea.value = textArea.value.slice(0, -1);
     }
 
-    if (event.code === 'ArrowUp') {
-      textArea.value += '▲';
-    }
-
-    if (event.code === 'ArrowDown') {
-      textArea.value += '▼';
-    }
-
-    if (event.code === 'ArrowLeft') {
-      textArea.value += '◄';
-    }
-
-    if (event.code === 'ArrowRight') {
-      textArea.value += '►';
+    if (event.code === 'Space') {
+      textArea.value += ' ';
     }
 
     textArea.focus();
@@ -484,7 +473,6 @@ export const createKeyboard = (keys) => {
     // if (!(button.closest('.hidden'))) {
     //   // console.log('pppppp');
     // }
-    // console.log(mains.innerHTML);
 
     highlight(button);
   });
@@ -500,6 +488,9 @@ export const createKeyboard = (keys) => {
     const clickButton = event.target.closest('button');
     if (!clickButton) return;
     if (clickButton) {
+      if (clickButton.innerText === '') {
+        textArea.value += ' ';
+      }
       if (clickButton.innerText === 'Backspace' || clickButton.innerText === 'Enter' || clickButton.innerText === 'Tab' || clickButton.innerText === 'Del' || clickButton.innerText === 'CapsLock' || clickButton.innerText === 'Shift' || clickButton.innerText === 'Alt' || clickButton.innerText === 'Win' || clickButton.innerText === 'Ctrl') {
         textArea.value += '';
       } else {
@@ -511,13 +502,20 @@ export const createKeyboard = (keys) => {
 
   document.addEventListener('keydown', (event) => {
     event.preventDefault();
+
     const clickButton = event;
 
     if (!clickButton) return;
 
     for (let i = 0; i < keys.length; i += 1) {
       for (let j = 0; j < keys[i].length; j += 1) {
-        if (clickButton.code === keys[i][j].className) {
+        if (clickButton.code === keys[i][j].className && event.shiftKey) {
+          if (clickButton.code === 'Backspace' || clickButton.code === 'Enter' || clickButton.code === 'Tab' || clickButton.code === 'Delete' || clickButton.code === 'CapsLock' || clickButton.code === 'ShiftLeft' || clickButton.code === 'ShiftRight' || clickButton.code === 'AltLeft' || clickButton.code === 'MetaLeft' || clickButton.code === 'ControlLeft' || clickButton.code === 'Space' || clickButton.code === 'AltRight') {
+            textArea.value += '';
+          } else {
+            textArea.value += keys[i][j].eng.pressUp;
+          }
+        } else if (clickButton.code === keys[i][j].className) {
           if (clickButton.code === 'Backspace' || clickButton.code === 'Enter' || clickButton.code === 'Tab' || clickButton.code === 'Delete' || clickButton.code === 'CapsLock' || clickButton.code === 'ShiftLeft' || clickButton.code === 'ShiftRight' || clickButton.code === 'AltLeft' || clickButton.code === 'MetaLeft' || clickButton.code === 'ControlLeft' || clickButton.code === 'Space' || clickButton.code === 'AltRight') {
             textArea.value += '';
           } else {
