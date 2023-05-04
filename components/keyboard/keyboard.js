@@ -378,15 +378,26 @@ export const createKeyboard = (keys) => {
   // SHIFT to mouse
   rowArr[3].firstChild.addEventListener('mousedown', () => {
     for (let i = 0; i < arrLettersEngUp.length; i += 1) {
-      arrLettersEngDown[i].classList.add('hidden');
-      arrLettersEngUp[i].classList.remove('hidden');
+      if (arrLettersEngCaps[i].classList.contains('hidden')) {
+        arrLettersEngDown[i].classList.add('hidden');
+        arrLettersEngUp[i].classList.remove('hidden');
+      } else if (!(arrLettersEngCaps[i].classList.contains('hidden'))) {
+        arrLettersEngCaps[i].classList.add('hidden');
+        arrLettersEngDown[i].classList.add('hidden');
+        arrLettersEngShiftCaps[i].classList.remove('hidden');
+      }
     }
   });
   // SHIFT to mouse
   rowArr[3].firstChild.addEventListener('mouseup', () => {
     for (let i = 0; i < arrLettersEngUp.length; i += 1) {
-      arrLettersEngDown[i].classList.remove('hidden');
-      arrLettersEngUp[i].classList.add('hidden');
+      if (!(arrLettersEngShiftCaps[i].classList.contains('hidden'))) {
+        arrLettersEngShiftCaps[i].classList.add('hidden');
+      }
+      if (arrLettersEngCaps[i].classList.contains('hidden')) {
+        arrLettersEngDown[i].classList.remove('hidden');
+        arrLettersEngUp[i].classList.add('hidden');
+      }
     }
   });
   // SHIFT to mouse
@@ -548,13 +559,18 @@ export const createKeyboard = (keys) => {
     deleteHighlight(button);
   });
 
-  // add text in textarea
+  // add text in textarea onmouse
   wrapper.addEventListener('click', (event) => {
     const clickButton = event.target.closest('button');
     if (!clickButton) return;
     if (clickButton) {
       if (clickButton.innerText === '') {
         textArea.value += ' ';
+      }
+      if (clickButton.innerText === 'CapsLock') {
+        if (clickButton.innerText === 'Shift') {
+          textArea.value += '';
+        }
       }
       if (clickButton.innerText === 'Backspace' || clickButton.innerText === 'Enter' || clickButton.innerText === 'Tab' || clickButton.innerText === 'Del' || clickButton.innerText === 'CapsLock' || clickButton.innerText === 'Shift' || clickButton.innerText === 'Alt' || clickButton.innerText === 'Win' || clickButton.innerText === 'Ctrl') {
         textArea.value += '';
