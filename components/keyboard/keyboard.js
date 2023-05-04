@@ -378,55 +378,109 @@ export const createKeyboard = (keys) => {
   // SHIFT to mouse
   rowArr[3].firstChild.addEventListener('mousedown', () => {
     for (let i = 0; i < arrLettersEngUp.length; i += 1) {
-      if (arrLettersEngCaps[i].classList.contains('hidden')) {
-        arrLettersEngDown[i].classList.add('hidden');
-        arrLettersEngUp[i].classList.remove('hidden');
-      } else if (!(arrLettersEngCaps[i].classList.contains('hidden'))) {
-        arrLettersEngCaps[i].classList.add('hidden');
-        arrLettersEngDown[i].classList.add('hidden');
-        arrLettersEngShiftCaps[i].classList.remove('hidden');
+      if (!arrSpanEng[i].classList.contains('hidden')) {
+        if (arrLettersEngCaps[i].classList.contains('hidden')) {
+          arrLettersEngDown[i].classList.add('hidden');
+          arrLettersEngUp[i].classList.remove('hidden');
+        } else if (!(arrLettersEngCaps[i].classList.contains('hidden'))) {
+          arrLettersEngCaps[i].classList.add('hidden');
+          arrLettersEngDown[i].classList.add('hidden');
+          arrLettersEngShiftCaps[i].classList.remove('hidden');
+        }
+      } else if (!arrSpanRus[i].classList.contains('hidden')) {
+        if (arrLettersRusCaps[i].classList.contains('hidden')) {
+          arrLettersRusDown[i].classList.add('hidden');
+          arrLettersRusUp[i].classList.remove('hidden');
+        } else if (!(arrLettersRusCaps[i].classList.contains('hidden'))) {
+          arrLettersRusCaps[i].classList.add('hidden');
+          arrLettersRusDown[i].classList.add('hidden');
+          arrLettersRusShiftCaps[i].classList.remove('hidden');
+        }
       }
     }
   });
   // SHIFT to mouse
   rowArr[3].firstChild.addEventListener('mouseup', () => {
     for (let i = 0; i < arrLettersEngUp.length; i += 1) {
-      if (!(arrLettersEngShiftCaps[i].classList.contains('hidden'))) {
-        arrLettersEngShiftCaps[i].classList.add('hidden');
-      }
-      if (arrLettersEngCaps[i].classList.contains('hidden')) {
-        arrLettersEngDown[i].classList.remove('hidden');
-        arrLettersEngUp[i].classList.add('hidden');
+      if (!arrSpanEng[i].classList.contains('hidden')) {
+        if (!(arrLettersEngShiftCaps[i].classList.contains('hidden'))) {
+          arrLettersEngShiftCaps[i].classList.add('hidden');
+        }
+        if (arrLettersEngCaps[i].classList.contains('hidden')) {
+          arrLettersEngDown[i].classList.remove('hidden');
+          arrLettersEngUp[i].classList.add('hidden');
+        }
+      } else if (!arrSpanRus[i].classList.contains('hidden')) {
+        if (!(arrLettersRusShiftCaps[i].classList.contains('hidden'))) {
+          arrLettersRusShiftCaps[i].classList.add('hidden');
+        }
+        if (arrLettersRusCaps[i].classList.contains('hidden')) {
+          arrLettersRusDown[i].classList.remove('hidden');
+          arrLettersRusUp[i].classList.add('hidden');
+        }
       }
     }
   });
   // SHIFT to mouse
   rowArr[3].lastChild.addEventListener('mousedown', () => {
     for (let i = 0; i < arrLettersEngUp.length; i += 1) {
-      arrLettersEngDown[i].classList.add('hidden');
-      arrLettersEngUp[i].classList.remove('hidden');
+      if (!arrSpanEng[i].classList.contains('hidden')) {
+        if (arrLettersEngCaps[i].classList.contains('hidden')) {
+          arrLettersEngDown[i].classList.add('hidden');
+          arrLettersEngUp[i].classList.remove('hidden');
+        } else if (!(arrLettersEngCaps[i].classList.contains('hidden'))) {
+          arrLettersEngCaps[i].classList.add('hidden');
+          arrLettersEngDown[i].classList.add('hidden');
+          arrLettersEngShiftCaps[i].classList.remove('hidden');
+        }
+      } else if (!arrSpanRus[i].classList.contains('hidden')) {
+        if (arrLettersRusCaps[i].classList.contains('hidden')) {
+          arrLettersRusDown[i].classList.add('hidden');
+          arrLettersRusUp[i].classList.remove('hidden');
+        } else if (!(arrLettersRusCaps[i].classList.contains('hidden'))) {
+          arrLettersRusCaps[i].classList.add('hidden');
+          arrLettersRusDown[i].classList.add('hidden');
+          arrLettersRusShiftCaps[i].classList.remove('hidden');
+        }
+      }
     }
   });
 
   // SHIFT to mouse
   rowArr[3].lastChild.addEventListener('mouseup', () => {
     for (let i = 0; i < arrLettersEngUp.length; i += 1) {
-      arrLettersEngDown[i].classList.remove('hidden');
-      arrLettersEngUp[i].classList.add('hidden');
+      if (!arrSpanEng[i].classList.contains('hidden')) {
+        if (!(arrLettersEngShiftCaps[i].classList.contains('hidden'))) {
+          arrLettersEngShiftCaps[i].classList.add('hidden');
+        }
+        if (arrLettersEngCaps[i].classList.contains('hidden')) {
+          arrLettersEngDown[i].classList.remove('hidden');
+          arrLettersEngUp[i].classList.add('hidden');
+        }
+      } else if (!arrSpanRus[i].classList.contains('hidden')) {
+        if (!(arrLettersRusShiftCaps[i].classList.contains('hidden'))) {
+          arrLettersRusShiftCaps[i].classList.add('hidden');
+        }
+        if (arrLettersRusCaps[i].classList.contains('hidden')) {
+          arrLettersRusDown[i].classList.remove('hidden');
+          arrLettersRusUp[i].classList.add('hidden');
+        }
+      }
     }
   });
 
   // capslock mouse
   rowArr[2].firstChild.addEventListener('click', (event) => {
     event.preventDefault();
-    const { target } = event;
-    if (target) {
-      // console.log('sssss');
-      // rowArr[2].firstChild.classList.add('hover');
-    }
+
     for (let i = 0; i < arrLettersEngCaps.length; i += 1) {
-      arrLettersEngCaps[i].classList.toggle('hidden');
-      arrLettersEngDown[i].classList.toggle('hidden');
+      if (!arrSpanEng[i].classList.contains('hidden')) {
+        arrLettersEngCaps[i].classList.toggle('hidden');
+        arrLettersEngDown[i].classList.toggle('hidden');
+      } else if (!arrSpanRus[i].classList.contains('hidden')) {
+        arrLettersRusCaps[i].classList.toggle('hidden');
+        arrLettersRusDown[i].classList.toggle('hidden');
+      }
     }
   });
 
@@ -495,16 +549,27 @@ export const createKeyboard = (keys) => {
 
     if (event.code === 'CapsLock') {
       for (let i = 0; i < arrLettersEngCaps.length; i += 1) {
-        arrLettersEngCaps[i].classList.toggle('hidden');
-        arrLettersEngDown[i].classList.toggle('hidden');
+        if (!arrSpanEng[i].classList.contains('hidden')) {
+          arrLettersEngCaps[i].classList.toggle('hidden');
+          arrLettersEngDown[i].classList.toggle('hidden');
+        } else if (!arrSpanRus[i].classList.contains('hidden')) {
+          arrLettersRusCaps[i].classList.toggle('hidden');
+          arrLettersRusDown[i].classList.toggle('hidden');
+        }
       }
     }
 
     if (event.key === 'Shift') {
       for (let i = 0; i < arrLettersEngUp.length; i += 1) {
-        arrLettersEngDown[i].classList.add('hidden');
-        arrLettersEngUp[i].classList.remove('hidden');
-        arrLettersEngCaps[i].classList.add('hidden');
+        if (!arrSpanEng[i].classList.contains('hidden')) {
+          arrLettersEngDown[i].classList.add('hidden');
+          arrLettersEngUp[i].classList.remove('hidden');
+          arrLettersEngCaps[i].classList.add('hidden');
+        } else if (!arrSpanRus[i].classList.contains('hidden')) {
+          arrLettersRusDown[i].classList.add('hidden');
+          arrLettersRusUp[i].classList.remove('hidden');
+          arrLettersRusCaps[i].classList.add('hidden');
+        }
       }
     }
 
@@ -591,17 +656,37 @@ export const createKeyboard = (keys) => {
 
     for (let i = 0; i < keys.length; i += 1) {
       for (let j = 0; j < keys[i].length; j += 1) {
-        if (clickButton.code === keys[i][j].className && event.shiftKey) {
-          if (clickButton.code === 'Backspace' || clickButton.code === 'Enter' || clickButton.code === 'Tab' || clickButton.code === 'Delete' || clickButton.code === 'CapsLock' || clickButton.code === 'ShiftLeft' || clickButton.code === 'ShiftRight' || clickButton.code === 'AltLeft' || clickButton.code === 'MetaLeft' || clickButton.code === 'ControlLeft' || clickButton.code === 'Space' || clickButton.code === 'AltRight') {
-            textArea.value += '';
-          } else {
-            textArea.value += keys[i][j].eng.pressUp;
+        if (!arrSpanEng[i].classList.contains('hidden')) {
+          if (clickButton.code === keys[i][j].className && event.shiftKey) {
+            if (clickButton.code === 'Backspace' || clickButton.code === 'Enter' || clickButton.code === 'Tab' || clickButton.code === 'Delete' || clickButton.code === 'CapsLock' || clickButton.code === 'ShiftLeft' || clickButton.code === 'ShiftRight' || clickButton.code === 'AltLeft' || clickButton.code === 'MetaLeft' || clickButton.code === 'ControlLeft' || clickButton.code === 'Space' || clickButton.code === 'AltRight') {
+              textArea.value += '';
+            } else {
+              textArea.value += keys[i][j].eng.pressUp;
+            }
+          } else if (clickButton.code === keys[i][j].className) {
+            if (clickButton.code === 'Backspace' || clickButton.code === 'Enter' || clickButton.code === 'Tab' || clickButton.code === 'Delete' || clickButton.code === 'CapsLock' || clickButton.code === 'ShiftLeft' || clickButton.code === 'ShiftRight' || clickButton.code === 'AltLeft' || clickButton.code === 'MetaLeft' || clickButton.code === 'ControlLeft' || clickButton.code === 'Space' || clickButton.code === 'AltRight') {
+              textArea.value += '';
+            } else if (clickButton.code === keys[i][j].className && !(arrLettersEngCaps[i].classList.contains('hidden'))) {
+              textArea.value += keys[i][j].eng.caps;
+            } else {
+              textArea.value += keys[i][j].eng.pressDown;
+            }
           }
-        } else if (clickButton.code === keys[i][j].className) {
-          if (clickButton.code === 'Backspace' || clickButton.code === 'Enter' || clickButton.code === 'Tab' || clickButton.code === 'Delete' || clickButton.code === 'CapsLock' || clickButton.code === 'ShiftLeft' || clickButton.code === 'ShiftRight' || clickButton.code === 'AltLeft' || clickButton.code === 'MetaLeft' || clickButton.code === 'ControlLeft' || clickButton.code === 'Space' || clickButton.code === 'AltRight') {
-            textArea.value += '';
-          } else {
-            textArea.value += keys[i][j].eng.pressDown;
+        } else if (!arrSpanRus[i].classList.contains('hidden')) {
+          if (clickButton.code === keys[i][j].className && event.shiftKey) {
+            if (clickButton.code === 'Backspace' || clickButton.code === 'Enter' || clickButton.code === 'Tab' || clickButton.code === 'Delete' || clickButton.code === 'CapsLock' || clickButton.code === 'ShiftLeft' || clickButton.code === 'ShiftRight' || clickButton.code === 'AltLeft' || clickButton.code === 'MetaLeft' || clickButton.code === 'ControlLeft' || clickButton.code === 'Space' || clickButton.code === 'AltRight') {
+              textArea.value += '';
+            } else {
+              textArea.value += keys[i][j].rus.pressUp;
+            }
+          } else if (clickButton.code === keys[i][j].className) {
+            if (clickButton.code === 'Backspace' || clickButton.code === 'Enter' || clickButton.code === 'Tab' || clickButton.code === 'Delete' || clickButton.code === 'CapsLock' || clickButton.code === 'ShiftLeft' || clickButton.code === 'ShiftRight' || clickButton.code === 'AltLeft' || clickButton.code === 'MetaLeft' || clickButton.code === 'ControlLeft' || clickButton.code === 'Space' || clickButton.code === 'AltRight') {
+              textArea.value += '';
+            } else if (clickButton.code === keys[i][j].className && !(arrLettersRusCaps[i].classList.contains('hidden'))) {
+              textArea.value += keys[i][j].rus.caps;
+            } else {
+              textArea.value += keys[i][j].rus.pressDown;
+            }
           }
         }
       }
@@ -621,8 +706,13 @@ export const createKeyboard = (keys) => {
 
     if (event.key === 'Shift') {
       for (let i = 0; i < arrLettersEngUp.length; i += 1) {
-        arrLettersEngDown[i].classList.remove('hidden');
-        arrLettersEngUp[i].classList.add('hidden');
+        if (!arrSpanEng[i].classList.contains('hidden')) {
+          arrLettersEngDown[i].classList.remove('hidden');
+          arrLettersEngUp[i].classList.add('hidden');
+        } else if (!arrSpanRus[i].classList.contains('hidden')) {
+          arrLettersRusDown[i].classList.remove('hidden');
+          arrLettersRusUp[i].classList.add('hidden');
+        }
       }
     }
   });
