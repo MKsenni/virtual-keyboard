@@ -66,6 +66,19 @@ export const createKeyboard = (keys) => {
     rowArr.push(row);
   }
 
+  const arrButtons = [];
+  const arrButtonsRows = [];
+  const arrButtonsFirstRow = [];
+  arrButtonsRows.push(arrButtonsFirstRow);
+  const arrButtonsSecondRow = [];
+  arrButtonsRows.push(arrButtonsSecondRow);
+  const arrButtonsThirdRow = [];
+  arrButtonsRows.push(arrButtonsThirdRow);
+  const arrButtonsFourRow = [];
+  arrButtonsRows.push(arrButtonsFourRow);
+  const arrButtonsFivetRow = [];
+  arrButtonsRows.push(arrButtonsFivetRow);
+
   const arrSpanEng = [];
   const arrLettersEngDown = [];
   const arrLettersEngUp = [];
@@ -92,6 +105,8 @@ export const createKeyboard = (keys) => {
 
   for (let i = 0; i < 14; i += 1) {
     const buttonFirstRow = createElement('button', cssClasses.KEY);
+    arrButtonsFirstRow.push(buttonFirstRow);
+    arrButtons.push(buttonFirstRow);
     rowArr[0].append(buttonFirstRow);
 
     const spanEng = KeyButton.createSpanLanguage(buttonFirstRow, cssClasses.ENG);
@@ -146,6 +161,8 @@ export const createKeyboard = (keys) => {
 
   for (let i = 0; i < 15; i += 1) {
     const buttonSecondRow = createElement('button', cssClasses.KEY);
+    arrButtons.push(buttonSecondRow);
+    arrButtonsSecondRow.push(buttonSecondRow);
     rowArr[1].append(buttonSecondRow);
 
     const spanEng = KeyButton.createSpanLanguage(buttonSecondRow, cssClasses.ENG);
@@ -199,6 +216,8 @@ export const createKeyboard = (keys) => {
 
   for (let i = 0; i < 13; i += 1) {
     const buttonThirdRow = createElement('button', cssClasses.KEY);
+    arrButtons.push(buttonThirdRow);
+    arrButtonsThirdRow.push(buttonThirdRow);
     rowArr[2].append(buttonThirdRow);
     const spanEng = KeyButton.createSpanLanguage(buttonThirdRow, cssClasses.ENG);
     arrSpanEng.push(spanEng);
@@ -251,6 +270,8 @@ export const createKeyboard = (keys) => {
 
   for (let i = 0; i < 13; i += 1) {
     const buttonFourRow = createElement('button', cssClasses.KEY);
+    arrButtons.push(buttonFourRow);
+    arrButtonsFourRow.push(buttonFourRow);
     rowArr[3].append(buttonFourRow);
     const spanEng = KeyButton.createSpanLanguage(buttonFourRow, cssClasses.ENG);
     arrSpanEng.push(spanEng);
@@ -303,6 +324,8 @@ export const createKeyboard = (keys) => {
 
   for (let i = 0; i < 9; i += 1) {
     const buttonFiveRow = createElement('button', cssClasses.KEY);
+    arrButtons.push(buttonFiveRow);
+    arrButtonsFivetRow.push(buttonFiveRow);
     rowArr[4].append(buttonFiveRow);
     const spanEng = KeyButton.createSpanLanguage(buttonFiveRow, cssClasses.ENG);
     arrSpanEng.push(spanEng);
@@ -415,15 +438,47 @@ export const createKeyboard = (keys) => {
   // backspace mouse
   rowArr[0].lastChild.addEventListener('click', (event) => {
     const { target } = event;
+    const cursorStart = textArea.selectionStart;
+    const cursorEnd = textArea.selectionEnd;
+
     if (target) {
-      textArea.value = textArea.value.slice(0, -1);
+      if (cursorStart !== 0 && cursorStart === cursorEnd) {
+        textArea.value = (textArea.value.substring(0, cursorStart - 1)
+        + textArea.value.substring(cursorStart + 1));
+        textArea.setSelectionRange(cursorStart - 1, cursorStart - 1);
+      }
+    }
+  });
+
+  // delete mouse
+  rowArr[1].lastChild.addEventListener('click', (event) => {
+    const { target } = event;
+    const cursorStart = textArea.selectionStart;
+
+    if (target) {
+      textArea.value = (textArea.value.substring(0, cursorStart)
+      + textArea.value.substring(cursorStart + 1));
+      textArea.setSelectionRange(cursorStart, cursorStart);
+    }
+  });
+
+  // highlight onkeydown
+  document.addEventListener('keydown', (event) => {
+    for (let i = 0; i < keys.length; i += 1) {
+      for (let j = 0; j < keys[i].length; j += 1) {
+        if (event.code === keys[i][j].className) {
+          highlight(arrButtonsRows[i][j]);
+        }
+      }
     }
   });
 
   // capslock, shift on buttons, change language on buttons, tab, enter. backspace
   document.addEventListener('keydown', (event) => {
     event.preventDefault();
-    event.stopPropagation();
+
+    const cursorStart = textArea.selectionStart;
+    const cursorEnd = textArea.selectionEnd;
 
     changeLanguage(event);
 
@@ -451,11 +506,21 @@ export const createKeyboard = (keys) => {
     }
 
     if (event.code === 'Backspace') {
-      textArea.value = textArea.value.slice(0, -1);
+      if (cursorStart !== 0 && cursorStart === cursorEnd) {
+        textArea.value = (textArea.value.substring(0, cursorStart - 1)
+        + textArea.value.substring(cursorStart + 1));
+        textArea.setSelectionRange(cursorStart - 1, cursorStart - 1);
+      }
     }
 
     if (event.code === 'Space') {
       textArea.value += ' ';
+    }
+
+    if (event.code === 'Delete') {
+      textArea.value = (textArea.value.substring(0, cursorStart)
+      + textArea.value.substring(cursorStart + 1));
+      textArea.setSelectionRange(cursorStart, cursorStart);
     }
 
     textArea.focus();
@@ -500,6 +565,7 @@ export const createKeyboard = (keys) => {
     textArea.focus();
   });
 
+  // add text in textarea onkeydown
   document.addEventListener('keydown', (event) => {
     event.preventDefault();
 
@@ -528,6 +594,14 @@ export const createKeyboard = (keys) => {
 
   document.addEventListener('keyup', (event) => {
     event.preventDefault();
+
+    for (let i = 0; i < keys.length; i += 1) {
+      for (let j = 0; j < keys[i].length; j += 1) {
+        if (event.code === keys[i][j].className) {
+          deleteHighlight(arrButtonsRows[i][j]);
+        }
+      }
+    }
 
     if (event.key === 'Shift') {
       for (let i = 0; i < arrLettersEngUp.length; i += 1) {
